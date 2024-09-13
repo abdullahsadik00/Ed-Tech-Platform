@@ -102,14 +102,14 @@ Clone the repository from GitHub:
 
 ```bash
 
-git  clone  https://github.com/yourusername/ed-tech-platform.git
+git  clone  https://github.com/abdullahsadik00/ed-tech-platform.git
 
 cd  ed-tech-platform
 ```
 
 ## Setup  Backend
 
-#### 1.  Navigate  to  the  backend  directory:
+### 1.  Navigate  to  the  backend  directory
 
 ```bash
 cd backend
@@ -129,7 +129,7 @@ JWT_SECRET=your_jwt_secret
 PORT=5000
 ```
 
-#### 4. Start the backend server:
+#### 4. Start the backend server
 
 ```bash
 npm start
@@ -143,19 +143,19 @@ npm start
 cd ../frontend
 ```
 
-#### 2. Install dependencies:
+#### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-#### 3. Create a .env file in the frontend directory and add the following environment variables:
+#### 3. Create a .env file in the frontend directory and add the following environment variables
 
 ```bash
 REACT_APP_API_URL=http://localhost:5000
 ```
 
-#### 4. Start the frontend server:
+#### 4. Start the frontend server
 
 ```bash
 npm start
@@ -163,13 +163,13 @@ npm start
 
 ## Docker Setup (Optional)
 
-#### 1. Build Docker images:
+#### 1. Build Docker images
 
 ```bash
 docker-compose build
 ```
 
-#### 2. Start the application with Docker:
+#### 2. Start the application with Docker
 
 ```bash
 docker-compose up
@@ -177,7 +177,7 @@ docker-compose up
 
 ### Running Tests
 
-####  1. Navigate to the backend directory and run tests:
+#### 1. Navigate to the backend directory and run tests
 
 ```bash
 cd backend
