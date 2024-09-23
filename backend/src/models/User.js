@@ -3,8 +3,14 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   firstname: { type: String, required: true, trim: true },
   lastname: { type: String, required: true, trim: true },
-  email: { type: String, required: true, trim: true },
-  password: { type: String, required: true },
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true, 
+    lowercase: true,
+  },
+  password: { type: String, required: true }, 
   role: {
     type: String,
     required: true,
@@ -15,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     ref: 'Profile',
   },
-  courses: { type: mongoose.Types.ObjectId, required: true, ref: 'Course' },
+  courses: [{ type: mongoose.Types.ObjectId, ref: 'Course' }], 
   image: { type: String, required: true },
   courseProgress: [
     {
@@ -23,7 +29,7 @@ const UserSchema = new mongoose.Schema({
       ref: 'CourseProgress',
     },
   ],
-});
+}, { timestamps: true }); 
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
