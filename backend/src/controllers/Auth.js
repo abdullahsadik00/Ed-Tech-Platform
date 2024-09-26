@@ -1,7 +1,9 @@
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const Otp = require('../models/Otp');
 const User = require('../models/User');
 const otpGenrator = require('otp-genrator');
-const bcrypt = require('bcrypt');
 const Profile = require('../models/Profile');
 
 exports.sendOTP = async function (req, res) {
@@ -135,3 +137,57 @@ exports.signUp = async function (req, res) {
     });
   }
 };
+
+exports.login = async function (req, res) {
+    try {
+        const{user,password,}=req.body;
+        if(!user ||!password){
+            return res.status(400).json({
+                message: 'Please provide email and password',
+                hasError: true,
+            });  
+        }
+        const isUserExist = await User.findOne({email: user}).populate('additionalDetails');
+        if(!isUserExist){
+            return res.status(401).json({
+                message: 'Invalid email or password',
+                hasError: true,
+            });
+        }else{
+            const isPasswordCorrect = await bcrypt.compare(password,isUserExist.password);
+            if(isPasswordCorrect){
+                const payload = {
+                    role:isUserExist.role,
+                    email:isUserExist.email,
+                    id:isUserExist._id
+                }
+                const token = jwt.sign(payload,process.env.SECRET_KEY,{expiresIn:"2h"})
+                isUserExist.token = token;
+                isUserExist.password = undefined;
+
+                const options = {
+                    expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'none'
+                }
+                return res.cookie("token",token,options).status(200).json({
+                    message: 'Logged in successfully',
+                    user: isUserExist,
+                    hasError: false,
+                });
+            }else{
+                return res.status(401).json({
+                    message: 'Invalid email or password',
+                    hasError: true,
+                });
+            }
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: 'Failed to login',
+            hasError: true,
+        });
+    }
+}
