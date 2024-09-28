@@ -29,6 +29,8 @@ const UserSchema = new mongoose.Schema({
       ref: 'CourseProgress',
     },
   ],
+  token: { type: String, required: true},
+  resetPasswordExpires: { type: String, required: true}
 }, { timestamps: true }); 
 
 const User = mongoose.model('User', UserSchema);
