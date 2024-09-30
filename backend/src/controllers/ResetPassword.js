@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const mailSender = require('../utils/mailSender');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // resetpasswordtoken
 exports.resetPasswordToken = async (req, res) => {
@@ -90,6 +92,40 @@ exports.resetPassword = async (req, res) => {
     return res.status(500).json({
       message: 'Failed to reset password',
       hasError: true,
+    });
+  }
+};
+
+// update password
+exports.updatePassword = async function (req, res) {
+  try {
+    const { password, confirmPassword } = req.body;
+    const token =
+      req.body.token || req.cookies.token || req.headers('Authorization');
+    if (password !== confirmPassword) {
+      return res
+        .status(400)
+        .json({ message: 'Passwords do not match', hasError: true });
+    }
+    const decoded = await jwt.verify(token, process.env.SECRET_KEY);
+    const user = await User.findByIdAndUpdate(
+      decoded.id,
+      { password: password },
+      { new: true }
+    );
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: 'User not found', hasError: true });
+    }
+    return res
+      .status(200)
+      .json({ message: 'Password updated successfully', hasError: false });
+  } catch (error) {
+    return res.status(404).json({
+      message: 'Password update failed',
+      hasError: true,
+      error: error,
     });
   }
 };
