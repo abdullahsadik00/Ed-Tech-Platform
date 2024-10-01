@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { countDocuments } = require('./Profile');
 
 const CourseSchema = new mongoose.Schema({
   courseName: {
@@ -21,7 +20,7 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  courseContent: {
+  section: {
     type: mongoose.Types.ObjectId,
     ref: 'Section',
     required: true,
