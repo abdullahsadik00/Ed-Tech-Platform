@@ -43,6 +43,10 @@ const CourseSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  currency:{
+    type: String,
+    default: 'INR'
+  }
 });
 
 module.exports = mongoose.model('Course', CourseSchema);
