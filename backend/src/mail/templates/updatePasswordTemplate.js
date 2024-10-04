@@ -1,1 +1,1 @@
-exports.updatePasswordTemplate = ``;
+exports.updatePasswordTemplate = async(req,res)=>{}

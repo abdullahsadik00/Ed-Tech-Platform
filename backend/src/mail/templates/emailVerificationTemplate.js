@@ -1,1 +1,1 @@
-exports.emailVerificationTemplate = ``;
+exports.emailVerificationTemplate = async(req,res) =>{}
