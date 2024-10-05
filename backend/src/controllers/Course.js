@@ -89,18 +89,62 @@ exports.getAllCourses = async (req, res) => {
     )
       .populate('instructor')
       .exec();
-      if(allCourses.length){
-        return res.status(200).json({
-          hasErrors: false,
-          data: allCourses,
-          message: 'Courses fetched successfully',
-        });
-      }
+    if (allCourses.length) {
+      return res.status(200).json({
+        hasErrors: false,
+        data: allCourses,
+        message: 'Courses fetched successfully',
+      });
+    }
   } catch (error) {
     return res.status(400).json({
       message: 'Failed to get courses',
       hasError: true,
       error: error.message,
+    });
+  }
+};
+
+exports.getCourseDetails = async (req, res) => {
+  try {
+    const { courseId } = req.body;
+    const courseDetails = await Course.findById({ _id: courseId })
+      .populate({
+        path: 'instructor',
+        populate: {
+          path: 'additionalDetails',
+        },
+      })
+      .populate({
+        path: 'tags',
+        populate: {
+          path: 'courses',
+        },
+      })
+      .populate({
+        path: 'sections',
+        populate: {
+          path: 'SubSection',
+        },
+      })
+      .populate('ratingAndreview')
+      .exec();
+    if (courseDetails) {
+      return res.status(200).json({
+        hasErrors: false,
+        data: courseDetails,
+        message: 'Course details fetched successfully',
+      });
+    } else {
+      return res.status(404).json({
+        hasError: true,
+        message: 'Course not found',
+      });
+    }
+  } catch (error) {
+    return res.status(404).json({
+      hasError: true,
+      message: `Failed to get course details ${error}`,
     });
   }
 };
