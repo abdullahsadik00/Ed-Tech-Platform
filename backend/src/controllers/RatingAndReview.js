@@ -95,7 +95,7 @@ exports.getAllRatingAndReview = async(req,res) =>{
             }).populate({
                 path:'course',
                 select : "courseName"
-            }).execute();
+            }).exec()
             if(!allReviewsRating){
                 return res.status(404).json({
                     hasError: true,
