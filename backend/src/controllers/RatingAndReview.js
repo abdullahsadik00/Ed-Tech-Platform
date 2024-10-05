@@ -52,3 +52,65 @@ exports.createRatingAndReview = async (req, res) => {
     });
   }
 };
+
+exports.getAverageRating = async (req, res) => {
+    try {
+        const {courseId} = req.body;
+        const averageRating = await RatingAndReview.aggregate({
+            $match :{
+                course: new Mongoose.Types.ObjectId(courseId)
+            },
+            $group :{
+                _id: null,
+                averageRating: { $avg: "$rating" }
+            },
+
+        })
+        if(averageRating.length > 0) {
+            res.status(200).json({
+                hasError: false,
+                data: averageRating[0],
+                message: 'Average rating retrieved successfully',
+            })
+        }else{
+            res.status(404).json({
+                hasError: false,
+                data:0,
+                message: 'Average rating retrieved successfully',
+            })
+        }
+    } catch (error) {
+        return res.status(404).json({
+            hasError: true,
+            message: 'An error occurred while retrieving average rating',
+        })
+    }
+}
+
+exports.getAllRatingAndReview = async(req,res) =>{
+    try {
+        const allReviewsRating = await RatingAndReview.findAll({}).sort({rating:'desc'}).populate(
+            {path:'user',
+                select : "firstname lastname email image"
+            }).populate({
+                path:'course',
+                select : "courseName"
+            }).execute();
+            if(!allReviewsRating){
+                return res.status(404).json({
+                    hasError: true,
+                    message: 'No rating and reviews found',
+                })
+            }
+            return res.status(200).json({
+                hasError: false,
+                data: allReviewsRating,
+                message: 'All rating and reviews retrieved successfully',
+            })
+    } catch (error) {
+        return res.status(404).json({
+            hasError: true,
+            message: 'An error occurred while retrieving all rating and reviews',
+        })
+    }
+}
