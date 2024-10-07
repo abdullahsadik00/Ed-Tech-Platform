@@ -8,7 +8,6 @@ const Profile = require('../models/Profile');
 
 exports.sendOTP = async (req, res) => {
   try {
-    console.log('Send OTP Message', req.body);
     const email = req.body.email;
     const ifUserPresent = await User.findOne({ email });
     if (ifUserPresent) {
@@ -22,10 +21,7 @@ exports.sendOTP = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-
-    console.log('otp generated', otp);
     const result = await OTP.findOne({ otp: otp });
-    console.log(result)
     while (result) {
       otp = otpGenrator.generate(6, {
         upperCaseAlphabets: false,
@@ -36,11 +32,10 @@ exports.sendOTP = async (req, res) => {
     }
     const otpPayload = { email, otp };
     const otpBody = await OTP.create(otpPayload);
-    console.log('OTP created', otpBody);
     return res.status(200).json({
       hasError: false,
       message: 'OTP sent successfully.',
-      data: otp,
+      data: otpBody,
     });
   } catch (error) {
     console.error({
@@ -56,13 +51,12 @@ exports.sendOTP = async (req, res) => {
 
 exports.signUp = async (req, res) => {
   try {
-    console.log("Signup",req.body)
     const {
       firstName,
       lastName,
       email,
       contact,
-      accountType,
+      role,
       password,
       confirmPassword,
       otp,
@@ -94,9 +88,7 @@ exports.signUp = async (req, res) => {
         message: 'Email already exists',
       });
     }
-console.log('email: ' + email.toString());
     const recentOTP = await OTP.findOne({ email })
-    console.log("recentOTP is now displaying",recentOTP);
      if (recentOTP.otp != otp) {
       return res.status(400).json({
         hasError: true,
@@ -105,19 +97,19 @@ console.log('email: ' + email.toString());
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const profileDetails = await Profile.create({
       gender: null,
       dateOfBirth: null,
       about: null,
       contact: null,
     });
-    const newUser = new User({
+  
+    const newUser =await User.create({
       firstName,
       lastName,
       email,
       contact,
-      accountType,
+      role,
       password: hashedPassword,
       additionalDetails: profileDetails._id,
       image: `https://api.dicebear.com/9.x/initials/svg?seed=${firstName} ${lastName}`,

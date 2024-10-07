@@ -8,7 +8,7 @@ const OTPSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
     required: true,
-    expires: '5m',
+    expires: '50m',
   },
 });
 

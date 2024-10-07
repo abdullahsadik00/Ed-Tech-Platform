@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  firstname: { type: String, required: true, trim: true },
-  lastname: { type: String, required: true, trim: true },
+  firstName: { type: String, required: true, trim: true },
+  lastName: { type: String, required: true, trim: true },
   email: {
     type: String,
     required: true,
@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true }, 
   role: {
     type: String,
-    required: true,
+    // required: true,
     enum: ['admin', 'student', 'instructor'],
   },
   additionalDetails: {
@@ -29,8 +29,12 @@ const UserSchema = new mongoose.Schema({
       ref: 'CourseProgress',
     },
   ],
-  token: { type: String, required: true},
-  resetPasswordExpires: { type: String, required: true}
+  token: { type: String, 
+    // required: true
+  },
+  resetPasswordExpires: { type: String, 
+    // required: true
+  }
 }, { timestamps: true }); 
 
 const User = mongoose.model('User', UserSchema);
