@@ -1,13 +1,14 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const Otp = require('../models/Otp');
+const OTP = require('../models/Otp');
 const User = require('../models/User');
-const otpGenrator = require('otp-genrator');
+const otpGenrator = require('otp-generator');
 const Profile = require('../models/Profile');
 
 exports.sendOTP = async (req, res) => {
   try {
+    console.log('Send OTP Message', req.body);
     const email = req.body.email;
     const ifUserPresent = await User.findOne({ email });
     if (ifUserPresent) {
@@ -23,7 +24,8 @@ exports.sendOTP = async (req, res) => {
     });
 
     console.log('otp generated', otp);
-    const result = await Otp.findOne({ otp: otp });
+    const result = await OTP.findOne({ otp: otp });
+    console.log(result)
     while (result) {
       otp = otpGenrator.generate(6, {
         upperCaseAlphabets: false,
@@ -54,6 +56,7 @@ exports.sendOTP = async (req, res) => {
 
 exports.signUp = async (req, res) => {
   try {
+    console.log("Signup",req.body)
     const {
       firstName,
       lastName,
@@ -91,17 +94,10 @@ exports.signUp = async (req, res) => {
         message: 'Email already exists',
       });
     }
-
-    const recentOTP = await OTP.find({ email })
-      .sort({ createdAt: -1 })
-      .limit(1);
-    console.log(recentOTP);
-    if (recentOTP.length == 0) {
-      return res.status(400).json({
-        hasError: true,
-        message: 'Invalid OTP',
-      });
-    } else if (recentOTP != otp) {
+console.log('email: ' + email.toString());
+    const recentOTP = await OTP.findOne({ email })
+    console.log("recentOTP is now displaying",recentOTP);
+     if (recentOTP.otp != otp) {
       return res.status(400).json({
         hasError: true,
         message: 'Invalid OTP',
@@ -126,7 +122,7 @@ exports.signUp = async (req, res) => {
       additionalDetails: profileDetails._id,
       image: `https://api.dicebear.com/9.x/initials/svg?seed=${firstName} ${lastName}`,
     });
-    return res.status.json({
+    return res.status(200).json({
       hasError: false,
       data: newUser,
       message: 'User created successfully',

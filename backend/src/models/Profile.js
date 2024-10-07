@@ -4,7 +4,7 @@ const ProfileSchmea = new mongoose.Schema({
   gender: {
     type: String,
     enum: ['male', 'female', 'other'],
-    required: true,
+    // required: true,
   },
   dateOfBirth: {
     type: String,
