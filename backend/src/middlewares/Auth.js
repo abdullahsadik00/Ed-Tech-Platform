@@ -34,7 +34,7 @@ exports.auth = async function(req, res, next) {
 
 exports.isStudent = async function (req, res,next){
     try {
-        if (req.user.role !== 'Student') {
+        if (req.user.role !== 'student') {
             return res.status(401).json({
                 hasError: true,
                 message: 'User is not a student',

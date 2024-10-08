@@ -140,6 +140,7 @@ exports.login = async (req, res) => {
     const isUserExist = await User.findOne({ email: user }).populate(
       'additionalDetails'
     );
+    console.log("isUserExist", isUserExist);
     if (!isUserExist) {
       return res.status(401).json({
         hasError: true,
@@ -150,6 +151,7 @@ exports.login = async (req, res) => {
         password,
         isUserExist.password
       );
+      console.log("isPasswordCorrect", isPasswordCorrect);
       if (isPasswordCorrect) {
         const payload = {
           role: isUserExist.role,
@@ -159,6 +161,7 @@ exports.login = async (req, res) => {
         const token = jwt.sign(payload, process.env.SECRET_KEY, {
           expiresIn: '2h',
         });
+        console.log("token: " + token);
         isUserExist.token = token;
         isUserExist.password = undefined;
 

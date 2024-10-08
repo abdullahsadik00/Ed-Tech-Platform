@@ -36,14 +36,15 @@ exports.resetPasswordToken = async (req, res) => {
       { new: true }
     );
     // send email with link to reset password
-    await mailSender(
-      email,
-      'Password reset link',
-      `Click the link to reset your password: ${url}`
-    );
+    // await mailSender(
+    //   email,
+    //   'Password reset link',
+    //   `Click the link to reset your password: ${url}`
+    // );
     res.status(200).json({
       message: 'Reset password token sent successfully',
       hasError: false,
+      data:url
     });
   } catch (error) {
     return res.status(500).json({
@@ -59,6 +60,7 @@ exports.resetPassword = async (req, res) => {
   try {
     const { password, confirmPassword, token } = req.body;
     const User = await User.findOne({ token: token });
+    console.log("resetPassword",User)
     if (!User) {
       return res.status(404).json({
         message: 'Token not found',
@@ -71,6 +73,7 @@ exports.resetPassword = async (req, res) => {
         hasError: true,
       });
     }
+    console.log("password !== confirmPassword",password !== confirmPassword)
     if (User.resetPasswordExpires >= Date.now()) {
       return res.status(401).json({
         hasError: true,
