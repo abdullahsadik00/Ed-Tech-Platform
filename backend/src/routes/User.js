@@ -3,8 +3,8 @@ const { login, signUp, sendOTP } = require('../controllers/Auth');
 const { auth } = require('../middlewares/Auth');
 const {
   updatePassword,
-  forgetPasswordToken,
-  forgetPassword,
+  forgotPasswordToken,
+  forgotPassword,
 } = require('../controllers/ResetPassword');
 const router = express.Router(); // Initialize the router
 
@@ -23,14 +23,14 @@ router.post('/sendOtp', sendOTP);
 // Change password
 // This endpoint allows authenticated users to change their password.
 // It requires a valid token from the authentication middleware.
-router.post('/changePassword', auth, updatePassword);
+router.post('/updatepassword', auth, updatePassword);
 
 // Reset Password
 // This endpoint allows users to reset their password by providing their email.
-router.post('/forgot-password', forgetPassword);
+router.post('/forgot-password', forgotPassword);
 
 // Reset Password Token
 // This endpoint verifies the token sent to the user and allows them to set a new password.
-router.post('/reset-password-token', forgetPasswordToken);
+router.post('/reset-password-token', forgotPasswordToken);
 
 module.exports = router;
