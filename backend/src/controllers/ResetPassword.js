@@ -3,14 +3,18 @@ const mailSender = require('../utils/mailSender');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+var crypto = require('crypto');
+
 
 // resetpasswordtoken
-exports.resetPasswordToken = async (req, res) => {
+exports.forgotPasswordToken = async (req, res) => {
   try {
     // get email from body and
     const { email } = req.body;
     // check and validate
+    console.log('email', email);
     const user = await User.findOne({ email: email });
+    console.log('user', user);
     if (!user) {
       return res.status(404).json({
         message: 'User not found',
@@ -20,18 +24,20 @@ exports.resetPasswordToken = async (req, res) => {
 
     // token
     const token = crypto.randomUUID();
+    console.log('token', token);
     // update the user with token and expiration timestamp
     // create url
     const url = `https://localhost:3000/update-password/${token}`;
+    console.log('url', url);
     // send email with url to user
     // save token in redis with expiration time
-    user.findOneAndUpdate(
+    const updatedUser = await User.findOneAndUpdate(
       {
         email: email,
       },
       {
         token: token,
-        resetPasswordExpires: Date.now() + 5 * 60 * 1000,
+        resetPasswordExpires: "50m",
       },
       { new: true }
     );
@@ -41,27 +47,31 @@ exports.resetPasswordToken = async (req, res) => {
     //   'Password reset link',
     //   `Click the link to reset your password: ${url}`
     // );
+    console.log(updatedUser);
     res.status(200).json({
       message: 'Reset password token sent successfully',
       hasError: false,
-      data:url
+      data:url,
+      updatedUser
     });
   } catch (error) {
     return res.status(500).json({
       message: 'Failed to send reset password token',
       hasError: true,
+      error: error.message
     });
   }
 };
 
 // Reset password
 
-exports.resetPassword = async (req, res) => {
+exports.forgotPassword = async (req, res) => {
+  console.warn('reset password')
   try {
     const { password, confirmPassword, token } = req.body;
-    const User = await User.findOne({ token: token });
+    const isUserExist = await User.findOne({ token: token });
     console.log("resetPassword",User)
-    if (!User) {
+    if (!isUserExist) {
       return res.status(404).json({
         message: 'Token not found',
         hasError: true,
@@ -74,7 +84,7 @@ exports.resetPassword = async (req, res) => {
       });
     }
     console.log("password !== confirmPassword",password !== confirmPassword)
-    if (User.resetPasswordExpires >= Date.now()) {
+    if (isUserExist.resetPasswordExpires >= Date.now()) {
       return res.status(401).json({
         hasError: true,
         message: 'Token expired',
@@ -95,6 +105,7 @@ exports.resetPassword = async (req, res) => {
     return res.status(500).json({
       message: 'Failed to reset password',
       hasError: true,
+      error: error.message,
     });
   }
 };
