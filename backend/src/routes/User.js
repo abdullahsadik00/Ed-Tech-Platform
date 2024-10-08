@@ -23,7 +23,7 @@ router.post('/changePassword', auth, updatePassword);
 
 // Reset Password
 // This endpoint allows users to reset their password by providing their email.
-router.post('/reset-password', resetPassword);
+router.post('/forgot-password', resetPassword);
 
 // Reset Password Token
 // This endpoint verifies the token sent to the user and allows them to set a new password.
