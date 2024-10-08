@@ -7,7 +7,7 @@ var crypto = require('crypto');
 
 
 // resetpasswordtoken
-exports.resetPasswordToken = async (req, res) => {
+exports.forgetPasswordToken = async (req, res) => {
   try {
     // get email from body and
     const { email } = req.body;
@@ -65,7 +65,7 @@ exports.resetPasswordToken = async (req, res) => {
 
 // Reset password
 
-exports.resetPassword = async (req, res) => {
+exports.forgetPassword = async (req, res) => {
   console.warn('reset password')
   try {
     const { password, confirmPassword, token } = req.body;
