@@ -4,7 +4,6 @@ import img2 from '../assets/blob.png';
 import s2 from '../assets/s2.jpg';
 import d3 from '../assets/d3.jpg';
 import s4 from '../assets/s4.jpg';
-import bg from '../assets/bg.jpg';
 import heroImg from '../assets/heroImg.png';
 import Navbar from '../components/core/Home/Navbar';
 import Footer from '../components/core/Footer';

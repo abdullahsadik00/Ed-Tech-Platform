@@ -3,9 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      inter: ['Inter', 'sans-serif'],
-      'edu-sa': ['Edu SA Beginner', 'cursive'],
-      mono: ['Roboto Mono', 'monospace'],
+      poppins: ['Poppins', 'sans-serif'], // Updated to Poppins
+      // 'edu-sa': ['Edu SA Beginner', 'cursive'],
+      lato: ['lato', 'sans-serif'],
     },
     colors: {
       white: '#fff',
@@ -20,7 +20,7 @@ module.exports = {
         300: '#838894',
         400: '#6E727F',
         500: '#585D69',
-        600: '#424854',
+        600: '#424848',
         700: '#2C333F',
         800: '#161D29',
         900: '#000814',

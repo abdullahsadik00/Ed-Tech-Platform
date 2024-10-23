@@ -5,7 +5,7 @@ import d3 from '../../../assets/d3.jpg';
 import s4 from '../../../assets/s4.jpg';
 const AboutUs = () => {
   return (
-    <section className="aboutUs w-full ">
+    <section className="aboutUs w-full bg-richblack-900 ">
       <div className="flex flex-col-reverse md:w-11/12 p-2 py-8 md:p-5 md:flex-row md:mx-auto 2xl:p-16">
         <div
           className="left bg-contain bg-no-repeat bg-center p-5 md:w-1/2"
@@ -30,13 +30,13 @@ const AboutUs = () => {
         </div>
         <div className="right w-full md:w-1/2 p-5 my-auto">
           <div className="flex flex-col gap-3">
-            <p className="text-base md:text-lg font-bold font-inter text-richblack-300 uppercase">
+            <p className="text-base md:text-lg font-bold font-lato text-richblack-300 uppercase">
               About Us
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold font-edu-sa tracking-tight leading-tight			">
+            <h2 className="text-3xl md:text-4xl font-extrabold font-poppins tracking-tight leading-tight text-white			">
               The roots of education are bitter, but the fruit is sweet
             </h2>
-            <p>
+            <p className="text-white/80 font-lato">
               At Ed Tech Platform, we're passionate about making education
               accessible, engaging, and enjoyable for everyone. Our mission is
               to empower learners and educators with innovative tools that
