@@ -34,10 +34,10 @@ const Footer = () => {
               Product
             </h3>
             <ul className="flex flex-col font-lato text-white tracking-wide">
-              <l1 className="mb-2">Features</l1>
-              <l1 className="mb-2">Pricing</l1>
-              <l1 className="mb-2">Blog</l1>
-              <l1 className="mb-2">Careers</l1>
+              <li className="mb-2">Features</li>
+              <li className="mb-2">Pricing</li>
+              <li className="mb-2">Blog</li>
+              <li className="mb-2">Careers</li>
             </ul>
           </div>
           <div className="w-1/5 ">
@@ -45,10 +45,10 @@ const Footer = () => {
               Company
             </h3>
             <ul className="flex flex-col font-lato text-white tracking-wide">
-              <l1 className="mb-2">About us</l1>
-              <l1 className="mb-2">Contact us</l1>
-              <l1 className="mb-2">FAQs</l1>
-              <l1 className="mb-2">Careers</l1>
+              <li className="mb-2">About us</li>
+              <li className="mb-2">Contact us</li>
+              <li className="mb-2">FAQs</li>
+              <li className="mb-2">Careers</li>
             </ul>
           </div>
           <div className="w-1/5 ">
