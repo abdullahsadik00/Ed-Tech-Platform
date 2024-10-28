@@ -16,10 +16,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer bg-[#323842] w-full">
-      <div className="container mx-auto max-w-5xl  md:max-w-4xl border-1 pt-10 pb-4">
-        <div className=" flex justify-between  ">
-          <div className="logo w-1/5  flex-wrap">
+    <footer className="footer bg-[#323842] w-full ">
+      <div className="container mx-auto max-w-5xl  md:max-w-4xl border-1 pt-10 pb-4 sm:mx-auto sm:max-w-2xl">
+        <div className=" flex justify-between wrapper ">
+          <div className="logo w-1/5 ">
             <div className="w-6">
               <img src={img2} alt="Logo" className="w-full" />
             </div>
@@ -55,7 +55,7 @@ const Footer = () => {
             <h3 className="font-bold font-poppins text-xl	text-white mb-4">
               Follow us
             </h3>
-            <ul className="flex items-center space-x-4 text-white mb-3">
+            <ul className="socialIcons flex items-center space-x-4 text-white mb-3 md:justify-start	">
               <li className="">
                 <a
                   href="https://www.facebook.com"
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className="w-full text-white mt-5" />
-        <div>
+        <div className="copyright">
           <p className="text-white font-lato tracking-wide text-sm mt-4">
             © 2022 Brand, Inc. <span>Privacy</span> <span>Terms</span>{' '}
             <span>Sitemap</span>

@@ -3,7 +3,7 @@
 .footer {
     background-color: #323842;
     /* Background color */
-    padding: 2rem 0;
+    /* padding: 2rem 0; */
     /* Padding */
 }
 
@@ -49,62 +49,87 @@
         max-width: 600px;
     }
 
-    .footer .flex {
+    footer .container .wrapper div {
+        width: 100%;
+        /* padding: 0 1rem; */
+        margin-top: 10px;
+    }
+
+    .wrapper div:last-child p {
+        margin-bottom: 16px;
+    }
+
+    .wrapper {
         flex-direction: column;
-        /* Stack items vertically */
         align-items: center;
-        /* Center items */
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
     }
 
-    .footer .logo {
+    .copyright {
         text-align: center;
-        /* Center logo text */
     }
 
-    .footer h3 {
-        text-align: center;
-        /* Center headings */
+    .socialIcons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
     }
+
+    .copyright {
+        padding-top: 8px;
+    }
+
 }
 
 /* Medium devices (tablet) */
 @media (min-width: 641px) and (max-width: 1023px) {
     footer .container {
+        min-width: 600px;
         max-width: 900px;
     }
 
-    .footer {
-        padding: 2rem;
-        /* Standard padding */
+    footer .container .wrapper div {
+        width: 50%;
+        /* padding: 0 1rem; */
+        /* margin-top: 10px; */
     }
 
-    .footer .flex {
+    .wrapper {
         flex-direction: row;
-        /* Row layout */
-        justify-content: space-around;
-        /* Even spacing */
+        align-items: center;
+        padding: 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin: 20px;
     }
 
-    .footer h3 {
-        text-align: left;
-        /* Align headings to the left */
+    .copyright {
+        text-align: center;
     }
+
+    .socialIcons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .copyright {
+        padding-top: 8px;
+    }
+
+
 }
 
 /* Large devices (desktop) */
 @media (min-width: 1024px) {
-    .footer {
-        padding: 2rem 0;
-        /* Standard padding */
+    footer .container {
+        max-width: 900px;
     }
 
-    .footer .flex {
-        justify-content: space-between;
-        /* Spread items across */
-    }
-
-    .footer h3 {
-        text-align: left;
-        /* Keep headings aligned to the left */
-    }
 }
