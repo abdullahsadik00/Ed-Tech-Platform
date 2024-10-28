@@ -1,0 +1,110 @@
+/* Footer.css */
+
+.footer {
+    background-color: #323842;
+    /* Background color */
+    padding: 2rem 0;
+    /* Padding */
+}
+
+.footer h3 {
+    font-weight: bold;
+    color: white;
+}
+
+.footer p {
+    color: white;
+    margin: 0.5rem 0;
+}
+
+.footer a {
+    color: white;
+    /* Link color */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+.footer img {
+    width: 24px;
+    /* Adjust icon size */
+    height: 24px;
+}
+
+.footer .divider {
+    border-top: 1px solid white;
+    /* Divider style */
+    margin: 1rem 0;
+    /* Margin for divider */
+}
+
+/* Media Queries */
+
+/* Small devices (mobile) */
+@media (max-width: 640px) {
+    footer .container {
+        max-width: 600px;
+    }
+
+    .footer .flex {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center items */
+    }
+
+    .footer .logo {
+        text-align: center;
+        /* Center logo text */
+    }
+
+    .footer h3 {
+        text-align: center;
+        /* Center headings */
+    }
+}
+
+/* Medium devices (tablet) */
+@media (min-width: 641px) and (max-width: 1023px) {
+    footer .container {
+        max-width: 900px;
+    }
+
+    .footer {
+        padding: 2rem;
+        /* Standard padding */
+    }
+
+    .footer .flex {
+        flex-direction: row;
+        /* Row layout */
+        justify-content: space-around;
+        /* Even spacing */
+    }
+
+    .footer h3 {
+        text-align: left;
+        /* Align headings to the left */
+    }
+}
+
+/* Large devices (desktop) */
+@media (min-width: 1024px) {
+    .footer {
+        padding: 2rem 0;
+        /* Standard padding */
+    }
+
+    .footer .flex {
+        justify-content: space-between;
+        /* Spread items across */
+    }
+
+    .footer h3 {
+        text-align: left;
+        /* Keep headings aligned to the left */
+    }
+}
