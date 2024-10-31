@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignUp.css';
 import signup1 from '../../../assets/img/signup1.png';
 import mail from '../../../assets/icons/mail.png';
 import lock from '../../../assets/icons/lock.png';
@@ -9,8 +10,8 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tabs, setTabs] = useState({
-    onBoard: false,
-    email: true,
+    onBoard: true,
+    email: false,
     facebook: false,
     google: false,
   });
@@ -31,11 +32,11 @@ const SignUp = () => {
   };
   return (
     <section className="SignUp w-full">
-      <div className="flex items-center justify-center container mx-auto max-w-5xl md:max-w-4xl border-1 pt-10 pb-4 sm:mx-auto sm:max-w-2xl">
-        <div className="right w-1/2 mr-10">
+      <div className="flex items-center justify-center container mx-auto md:max-w-4xl border-1 pt-10 pb-4 sm:mx-auto ">
+        <div className="left w-1/2 mr-10">
           <img src={signup1} alt="signup1" />
         </div>
-        <div className="left w-1/2 border-white border rounded-md shadow-2xl ml-10 min-h-[500px]">
+        <div className="right w-1/2 border-white border rounded-md shadow-2xl ml-10 min-h-[500px]">
           <div className="p-8 max-h-[500px] pb-0">
             <div className="flex justify-between flex-col">
               <div>
@@ -143,7 +144,7 @@ const SignUp = () => {
                   </div>
                 )}
 
-                {false ? (
+                {true ? (
                   <div>
                     <button
                       type="button"

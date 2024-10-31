@@ -1,0 +1,10 @@
+/* Media Queries */
+
+/* Small devices (mobile) */
+@media (max-width: 640px) {}
+
+/* Medium devices (tablet) */
+@media (min-width: 641px) and (max-width: 1023px) {}
+
+/* Large devices (desktop) */
+@media (min-width: 1024px) {}
