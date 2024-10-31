@@ -6,10 +6,10 @@ const Faq = () => {
       <div className="relative w-full bg-white px-6 m-10 pb-8 mt-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10">
         <div className="mx-auto px-5">
           <div className="flex flex-col items-center">
-            <p className="text-base mt-5 md:text-lg font-bold font-inter text-richblack-300 uppercase">
+            <p className="text-base mt-5 md:text-lg font-bold font-lato text-richblack-300 uppercase">
               FAQ
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold font-edu-sa tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold font-poppins tracking-tight leading-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -50,7 +50,7 @@ const Faq = () => {
               <div key={index} className="py-5">
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium hover:bg-gray-100 p-2 rounded transition duration-200">
-                    <span>{item.question}</span>
+                    <span className="font-poppins">{item.question}</span>
                     <span className="transition group-open:rotate-180">
                       <svg
                         fill="none"
@@ -67,9 +67,7 @@ const Faq = () => {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-                    {item.answer}
-                  </p>
+                  <p className="font-lato mt-3 ">{item.answer}</p>
                 </details>
               </div>
             ))}

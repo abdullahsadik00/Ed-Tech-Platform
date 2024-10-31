@@ -60,13 +60,13 @@ const Feature = () => {
       <div className="bg-richblack-900 py-16 md:py-10 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-white uppercase">
+            <p className="text-base font-semibold leading-7 text-white uppercase font-lato">
               Why Choose Us?
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Empowering Learning Through Innovation
             </p>
-            <p className="mt-6 text-lg leading-8 text-white">
+            <h2 className="mt-2 text-3xl font-extrabold font-poppins tracking-tight text-white sm:text-4xl">
+              Empowering Learning Through Innovation
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white font-lato">
               Our platform provides a complete and immersive learning experience
               designed to make education fun, interactive, and personalized.
             </p>
@@ -106,7 +106,7 @@ const Feature = () => {
                       </div>
                       {feature.title}
                     </dt>
-                    <dd className="mt-2 text-base leading-7 text-white">
+                    <dd className="mt-2 text-base leading-7 text-white font-lato">
                       {feature.description}
                     </dd>{' '}
                     {/* All text set to white */}
