@@ -19,6 +19,18 @@
     #aboutUs .container {
         padding: 20px;
     }
+
+    #aboutUs .aboutCta {
+        flex-direction: column;
+    }
+
+    #aboutUs .aboutCtaText {
+        width: 100%;
+    }
+
+    #aboutUs .aboutCtaImg {
+        width: 100%;
+    }
 }
 
 @media (min-width: 641px) and (max-width: 1023px) {

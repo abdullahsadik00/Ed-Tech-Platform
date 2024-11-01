@@ -39,7 +39,7 @@ const Item = ({ title, children }) => {
   );
 };
 
-export const Faq = () => {
+const Faq = () => {
   const faqData = [
     {
       question: 'What is Ed-tech Platform?',
@@ -92,3 +92,5 @@ export const Faq = () => {
     </div>
   );
 };
+
+export default Faq;
