@@ -3,14 +3,18 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import SignUp from './components/core/Auth/SignUp';
+import ContactUs from './pages/ContactUs';
+import AboutUs from './pages/AboutUs';
+import PageNotFound from './pages/PageNotFound';
 const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route path='/contact' element={<Contact />} /> */}
-        {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

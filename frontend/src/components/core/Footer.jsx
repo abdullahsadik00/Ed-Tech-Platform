@@ -16,201 +16,336 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer bg-[#323842] w-full ">
-      <div className="container mx-auto max-w-5xl  md:max-w-4xl border-1 pt-10 pb-4 sm:mx-auto sm:max-w-2xl">
-        <div className=" flex justify-between wrapper ">
-          <div className="logo w-1/5 ">
-            <div className="w-6">
-              <img src={img2} alt="Logo" className="w-full" />
+    <>
+      {/* Starts Footer */}
+      <footer className="relative z-10 bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+        <div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
+              <div className="mb-10 w-full">
+                <a href="/#" className="mb-6 inline-block max-w-[160px]">
+                  <img
+                    src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
+                    alt="logo"
+                    className="max-w-full dark:hidden"
+                  />
+                  <img
+                    src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
+                    alt="logo"
+                    className="max-w-full hidden dark:block"
+                  />
+                </a>
+                <p className="mb-7 text-base text-body-color dark:text-dark-6">
+                  Sed ut perspiciatis undmnis is iste natus error sit amet
+                  voluptatem totam rem aperiam.
+                </p>
+                <p className="flex items-center text-sm font-medium text-dark dark:text-white">
+                  <span className="mr-3 text-primary">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_941_15626)">
+                        <path
+                          d="M15.1875 19.4688C14.3438 19.4688 13.375 19.25 12.3125 18.8438C10.1875 18 7.84377 16.375 5.75002 14.2813C3.65627 12.1875 2.03127 9.84377 1.18752 7.68752C0.250019 5.37502 0.343769 3.46877 1.43752 2.40627C1.46877 2.37502 1.53127 2.34377 1.56252 2.31252L4.18752 0.750025C4.84377 0.375025 5.68752 0.562525 6.12502 1.18752L7.96877 3.93753C8.40627 4.59378 8.21877 5.46877 7.59377 5.90627L6.46877 6.68752C7.28127 8.00002 9.59377 11.2188 13.2813 13.5313L13.9688 12.5313C14.5 11.7813 15.3438 11.5625 16.0313 12.0313L18.7813 13.875C19.4063 14.3125 19.5938 15.1563 19.2188 15.8125L17.6563 18.4375C17.625 18.5 17.5938 18.5313 17.5625 18.5625C17 19.1563 16.1875 19.4688 15.1875 19.4688ZM2.37502 3.46878C1.78127 4.12503 1.81252 5.46877 2.50002 7.18752C3.28127 9.15627 4.78127 11.3125 6.75002 13.2813C8.68752 15.2188 10.875 16.7188 12.8125 17.5C14.5 18.1875 15.8438 18.2188 16.5313 17.625L18.0313 15.0625C18.0313 15.0313 18.0313 15.0313 18.0313 15L15.2813 13.1563C15.2813 13.1563 15.2188 13.1875 15.1563 13.2813L14.4688 14.2813C14.0313 14.9063 13.1875 15.0938 12.5625 14.6875C8.62502 12.25 6.18752 8.84377 5.31252 7.46877C4.90627 6.81252 5.06252 5.96878 5.68752 5.53128L6.81252 4.75002V4.71878L4.96877 1.96877C4.96877 1.93752 4.93752 1.93752 4.90627 1.96877L2.37502 3.46878Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M18.3125 8.90633C17.9375 8.90633 17.6563 8.62508 17.625 8.25008C17.375 5.09383 14.7813 2.56258 11.5938 2.34383C11.2188 2.31258 10.9063 2.00008 10.9375 1.59383C10.9688 1.21883 11.2813 0.906333 11.6875 0.937583C15.5625 1.18758 18.7188 4.25008 19.0313 8.12508C19.0625 8.50008 18.7813 8.84383 18.375 8.87508C18.375 8.90633 18.3438 8.90633 18.3125 8.90633Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M15.2187 9.18755C14.875 9.18755 14.5625 8.93755 14.5312 8.56255C14.3437 6.87505 13.0312 5.56255 11.3437 5.3438C10.9687 5.31255 10.6875 4.93755 10.7187 4.56255C10.75 4.18755 11.125 3.9063 11.5 3.93755C13.8437 4.2188 15.6562 6.0313 15.9375 8.37505C15.9687 8.75005 15.7187 9.0938 15.3125 9.1563C15.25 9.18755 15.2187 9.18755 15.2187 9.18755Z"
+                          fill="currentColor"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_941_15626">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                  <span>+012 (345) 678 99</span>
+                </p>
+              </div>
             </div>
-            <div className="mt-4">
-              <p className="font-lato text-white tracking-wide">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-              </p>
-            </div>
-          </div>
-          <div className="w-1/5 ">
-            <h3 className="font-bold font-poppins text-xl	text-white mb-4">
-              Product
-            </h3>
-            <ul className="flex flex-col font-lato text-white tracking-wide">
-              <li className="mb-2">Features</li>
-              <li className="mb-2">Pricing</li>
-              <li className="mb-2">Blog</li>
-              <li className="mb-2">Careers</li>
-            </ul>
-          </div>
-          <div className="w-1/5 ">
-            <h3 className="font-bold font-poppins text-xl	text-white mb-4">
-              Company
-            </h3>
-            <ul className="flex flex-col font-lato text-white tracking-wide">
-              <li className="mb-2">About us</li>
-              <li className="mb-2">Contact us</li>
-              <li className="mb-2">FAQs</li>
-              <li className="mb-2">Careers</li>
-            </ul>
-          </div>
-          <div className="w-1/5 ">
-            <h3 className="font-bold font-poppins text-xl	text-white mb-4">
-              Follow us
-            </h3>
-            <ul className="socialIcons flex items-center space-x-4 text-white mb-3 md:justify-start	">
-              <li className="">
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={facebook} alt="" />
-                </a>
-              </li>
-              <li className="">
-                <a
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={linkedin} alt="" />
-                </a>
-              </li>
-              <li className="">
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={twitter} alt="" />
-                </a>
-              </li>
-              <li className="">
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={youtube} alt="" />
-                </a>
-              </li>
-            </ul>
-            <div>
-              <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
-                Alaska, United States{' '}
-              </p>
-              <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
-                template@email.com
-              </p>
-              <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
-                +91 9823514449
-              </p>
+
+            <LinkGroup header="Resources">
+              <NavLink link="/#" label="SaaS Development" />
+              <NavLink link="/#" label="Our Products" />
+              <NavLink link="/#" label="User Flow" />
+              <NavLink link="/#" label="User Strategy" />
+            </LinkGroup>
+            <LinkGroup header="Company">
+              <NavLink link="/#" label="About TailGrids" />
+              <NavLink link="/#" label="Contact & Support" />
+              <NavLink link="/#" label="Success History" />
+              <NavLink link="/#" label="Setting & Privacy" />
+            </LinkGroup>
+            <LinkGroup header="Quick Links">
+              <NavLink link="/#" label="Premium Support" />
+              <NavLink link="/#" label="Our Services" />
+              <NavLink link="/#" label="Know Our Team" />
+              <NavLink link="/#" label="Download App" />
+            </LinkGroup>
+
+            <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
+              <div className="mb-10 w-full">
+                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+                  Follow Us On
+                </h4>
+                <div className="mb-6 flex items-center">
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                  >
+                    <svg
+                      width="8"
+                      height="16"
+                      viewBox="0 0 8 16"
+                      className="fill-current"
+                    >
+                      <path d="M7.43902 6.4H6.19918H5.75639V5.88387V4.28387V3.76774H6.19918H7.12906C7.3726 3.76774 7.57186 3.56129 7.57186 3.25161V0.516129C7.57186 0.232258 7.39474 0 7.12906 0H5.51285C3.76379 0 2.54609 1.44516 2.54609 3.5871V5.83226V6.34839H2.10329H0.597778C0.287819 6.34839 0 6.63226 0 7.04516V8.90323C0 9.26452 0.243539 9.6 0.597778 9.6H2.05902H2.50181V10.1161V15.3032C2.50181 15.6645 2.74535 16 3.09959 16H5.18075C5.31359 16 5.42429 15.9226 5.51285 15.8194C5.60141 15.7161 5.66783 15.5355 5.66783 15.3806V10.1419V9.62581H6.13276H7.12906C7.41688 9.62581 7.63828 9.41935 7.68256 9.10968V9.08387V9.05806L7.99252 7.27742C8.01466 7.09677 7.99252 6.89032 7.85968 6.68387C7.8154 6.55484 7.61614 6.42581 7.43902 6.4Z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                  >
+                    <svg
+                      width="16"
+                      height="12"
+                      viewBox="0 0 16 12"
+                      className="fill-current"
+                    >
+                      <path d="M14.2194 2.06654L15.2 0.939335C15.4839 0.634051 15.5613 0.399217 15.5871 0.2818C14.8129 0.704501 14.0903 0.845401 13.6258 0.845401H13.4452L13.3419 0.751468C12.7226 0.258317 11.9484 0 11.1226 0C9.31613 0 7.89677 1.36204 7.89677 2.93542C7.89677 3.02935 7.89677 3.17025 7.92258 3.26419L8 3.73386L7.45806 3.71037C4.15484 3.61644 1.44516 1.03327 1.00645 0.587084C0.283871 1.76125 0.696774 2.88845 1.13548 3.59296L2.0129 4.90802L0.619355 4.20352C0.645161 5.18982 1.05806 5.96477 1.85806 6.52838L2.55484 6.99804L1.85806 7.25636C2.29677 8.45401 3.27742 8.94716 4 9.13503L4.95484 9.36986L4.05161 9.93346C2.60645 10.8728 0.8 10.8024 0 10.7319C1.62581 11.7652 3.56129 12 4.90323 12C5.90968 12 6.65806 11.9061 6.83871 11.8356C14.0645 10.2857 14.4 4.41487 14.4 3.2407V3.07632L14.5548 2.98239C15.4323 2.23092 15.7935 1.8317 16 1.59687C15.9226 1.62035 15.8194 1.66732 15.7161 1.6908L14.2194 2.06654Z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                  >
+                    <svg
+                      width="16"
+                      height="12"
+                      viewBox="0 0 16 12"
+                      className="fill-current"
+                    >
+                      <path d="M15.6645 1.88018C15.4839 1.13364 14.9419 0.552995 14.2452 0.359447C13.0065 6.59222e-08 8 0 8 0C8 0 2.99355 6.59222e-08 1.75484 0.359447C1.05806 0.552995 0.516129 1.13364 0.335484 1.88018C0 3.23502 0 6 0 6C0 6 0 8.79263 0.335484 10.1198C0.516129 10.8664 1.05806 11.447 1.75484 11.6406C2.99355 12 8 12 8 12C8 12 13.0065 12 14.2452 11.6406C14.9419 11.447 15.4839 10.8664 15.6645 10.1198C16 8.79263 16 6 16 6C16 6 16 3.23502 15.6645 1.88018ZM6.4 8.57143V3.42857L10.5548 6L6.4 8.57143Z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      className="fill-current"
+                    >
+                      <path d="M13.0214 0H1.02084C0.453707 0 0 0.451613 0 1.01613V12.9839C0 13.5258 0.453707 14 1.02084 14H12.976C13.5432 14 13.9969 13.5484 13.9969 12.9839V0.993548C14.0422 0.451613 13.5885 0 13.0214 0ZM4.15142 11.9H2.08705V5.23871H4.15142V11.9ZM3.10789 4.3129C2.42733 4.3129 1.90557 3.77097 1.90557 3.11613C1.90557 2.46129 2.45002 1.91935 3.10789 1.91935C3.76577 1.91935 4.31022 2.46129 4.31022 3.11613C4.31022 3.77097 3.81114 4.3129 3.10789 4.3129ZM11.9779 11.9H9.9135V8.67097C9.9135 7.90323 9.89082 6.8871 8.82461 6.8871C7.73571 6.8871 7.57691 7.74516 7.57691 8.60323V11.9H5.51254V5.23871H7.53154V6.16452H7.55423C7.84914 5.62258 8.50701 5.08065 9.52785 5.08065C11.6376 5.08065 12.0232 6.43548 12.0232 8.2871V11.9H11.9779Z" />
+                    </svg>
+                  </a>
+                </div>
+                <p className="text-base text-body-color dark:text-dark-6">
+                  &copy; 2025 TailGrids
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <hr className="w-full text-white mt-5" />
-        <div className="copyright">
-          <p className="text-white font-lato tracking-wide text-sm mt-4">
-            © 2022 Brand, Inc. <span>Privacy</span> <span>Terms</span>{' '}
-            <span>Sitemap</span>
-          </p>
+        <div>
+          <span className="absolute bottom-0 left-0 z-[-1]">
+            <svg
+              width={217}
+              height={229}
+              viewBox="0 0 217 229"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M-64 140.5C-64 62.904 -1.096 1.90666e-05 76.5 1.22829e-05C154.096 5.49924e-06 217 62.904 217 140.5C217 218.096 154.096 281 76.5 281C-1.09598 281 -64 218.096 -64 140.5Z"
+                fill="url(#paint0_linear_1179_5)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_1179_5"
+                  x1="76.5"
+                  y1={281}
+                  x2="76.5"
+                  y2="1.22829e-05"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#3056D3" stopOpacity="0.08" />
+                  <stop offset={1} stopColor="#C4C4C4" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span className="absolute right-10 top-10 z-[-1]">
+            <svg
+              width={75}
+              height={75}
+              viewBox="0 0 75 75"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M37.5 -1.63918e-06C58.2107 -2.54447e-06 75 16.7893 75 37.5C75 58.2107 58.2107 75 37.5 75C16.7893 75 -7.33885e-07 58.2107 -1.63918e-06 37.5C-2.54447e-06 16.7893 16.7893 -7.33885e-07 37.5 -1.63918e-06Z"
+                fill="url(#paint0_linear_1179_4)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_1179_4"
+                  x1="-1.63917e-06"
+                  y1="37.5"
+                  x2={75}
+                  y2="37.5"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#13C296" stopOpacity="0.31" />
+                  <stop offset={1} stopColor="#C4C4C4" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
         </div>
-      </div>
-    </footer>
+      </footer>
+      {/* Ends Footer */}
+      <footer className="footer bg-[#323842] w-full ">
+        <div className="container mx-auto max-w-5xl border-1 pt-10 pb-4 sm:mx-auto sm:max-w-2xl">
+          <div className=" flex justify-between wrapper ">
+            <div className="logo w-1/5 ">
+              <div className="w-6">
+                <img src={img2} alt="Logo" className="w-full" />
+              </div>
+              <div className="mt-4">
+                <p className="font-lato text-white tracking-wide">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
+                </p>
+              </div>
+            </div>
+            <div className="w-1/5 ">
+              <h3 className="font-bold font-poppins text-xl	text-white mb-4">
+                Product
+              </h3>
+              <ul className="flex flex-col font-lato text-white tracking-wide">
+                <li className="mb-2">Features</li>
+                <li className="mb-2">Pricing</li>
+                <li className="mb-2">Blog</li>
+                <li className="mb-2">Careers</li>
+              </ul>
+            </div>
+            <div className="w-1/5 ">
+              <h3 className="font-bold font-poppins text-xl	text-white mb-4">
+                Company
+              </h3>
+              <ul className="flex flex-col font-lato text-white tracking-wide">
+                <li className="mb-2">About us</li>
+                <li className="mb-2">Contact us</li>
+                <li className="mb-2">FAQs</li>
+                <li className="mb-2">Careers</li>
+              </ul>
+            </div>
+            <div className="w-1/5 ">
+              <h3 className="font-bold font-poppins text-xl	text-white mb-4">
+                Follow us
+              </h3>
+              <ul className="socialIcons flex items-center space-x-4 text-white mb-3 md:justify-start	">
+                <li className="">
+                  <a
+                    href="https://www.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={facebook} alt="" />
+                  </a>
+                </li>
+                <li className="">
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={linkedin} alt="" />
+                  </a>
+                </li>
+                <li className="">
+                  <a
+                    href="https://www.instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={twitter} alt="" />
+                  </a>
+                </li>
+                <li className="">
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={youtube} alt="" />
+                  </a>
+                </li>
+              </ul>
+              <div>
+                <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
+                  Alaska, United States{' '}
+                </p>
+                <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
+                  template@email.com
+                </p>
+                <p className="font-lato leading-5 text-base	text-white tracking-wide mb-3">
+                  +91 9823514449
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr className="w-full text-white mt-5" />
+          <div className="copyright">
+            <p className="text-white font-lato tracking-wide text-sm mt-4">
+              © 2022 Brand, Inc. <span>Privacy</span> <span>Terms</span>{' '}
+              <span>Sitemap</span>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 
 export default Footer;
-{
-  /* <footer className="text-gray-500 bg-white px-4 py-5 mx-auto md:px-8">
-  <div className="max-w-lg sm:mx-auto sm:text-center">
-    <img src={img2} alt="Logo" className="w-32 sm:mx-auto" />
-    <p className="leading-relaxed mt-2 text-[15px]">
-      Empowering students with knowledge and skills for the future. Join our
-      community and take the next step in your education!
-    </p>
-  </div>
-  <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
-    {footerNavs.map((item, idx) => (
-      <li key={idx} className="hover:text-gray-800">
-        <a href={item.href}>{item.name}</a>
-      </li>
-    ))}
-  </ul>
-  <div className="mt-8 items-center justify-between sm:flex">
-    <div className="mt-4 sm:mt-0">
-      &copy; 2024 EdTech Academy. All rights reserved.
-    </div>
-    <div className="mt-6 sm:mt-0">
-      <ul className="flex items-center space-x-4">
-        <li className="w-10 h-10 flex items-center justify-center">
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="#FFFFFF"
-              viewBox="0 0 16 16"
-            >
-              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-            </svg>
-          </a>
-        </li>
-        <li className="w-10 h-10 flex items-center justify-center">
-          <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="#0077b5"
-              viewBox="0 0 16 16"
-            >
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-            </svg>
-          </a>
-        </li>
-        <li className="w-10 h-10 flex items-center justify-center">
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="#E1306C"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-            </svg>
-          </a>
-        </li>
-        <li className="w-10 h-10 flex items-center justify-center">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="#1DA1F2"
-              viewBox="0 0 16 16"
-            >
-              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</footer>; */
-}
+
+const LinkGroup = ({ children, header }) => {
+  return (
+    <>
+      <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
+        <div className="mb-10 w-full">
+          <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+            {header}
+          </h4>
+          <ul className="space-y-3">{children}</ul>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const NavLink = ({ link, label }) => {
+  return (
+    <li>
+      <a
+        href={link}
+        className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
+      >
+        {label}
+      </a>
+    </li>
+  );
+};
