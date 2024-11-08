@@ -49,6 +49,12 @@ const Navbar = () => {
               >
                 contact
               </a>
+              <a
+                href="/dash"
+                className="py-5 px-3 text-gray-700 hover:text-gray-900"
+              >
+                Dashboard
+              </a>
             </div>
           </div>
 
@@ -100,6 +106,9 @@ const Navbar = () => {
             className="block py-2 px-4 text-sm hover:bg-gray-200"
           >
             contact
+          </a>
+          <a href="/dash" className="block py-2 px-4 text-sm hover:bg-gray-200">
+            Dashboard
           </a>
         </div>
       )}

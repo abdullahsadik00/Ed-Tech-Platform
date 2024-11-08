@@ -6,6 +6,7 @@ import SignUp from './components/core/Auth/SignUp';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import PageNotFound from './pages/PageNotFound';
+import Dashboard from './pages/Dashboard';
 const App = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/dash" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
