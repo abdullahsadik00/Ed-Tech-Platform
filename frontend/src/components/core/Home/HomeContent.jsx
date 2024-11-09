@@ -1,5 +1,6 @@
 import React from 'react';
 import DropdownMenu from '../../ui elements/DropdownMenu';
+import CalendarComponent from '../../ui elements/CalendarComponent';
 
 const HomeContent = () => {
   const menuItems = [
@@ -8,7 +9,6 @@ const HomeContent = () => {
     { label: 'License', href: '#' },
     { label: 'Sign out', onClick: () => alert('Signing out...') },
   ];
-
   return (
     <div className="bg-[#f8f8fe] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 sm:space-x-0 p-4">
       {/* Left Column: Cards 1, 2, and 3 */}
@@ -23,7 +23,7 @@ const HomeContent = () => {
         <div className="border border-white rounded-lg w-full h-[350px] flex shadow-sm bg-white">
           <div className="w-full px-4 py-2">
             <div className="flex justify-between items-center ">
-              <h2 className=" font-poppins font-semibold leading-5 tracking-wider">
+              <h2 className="font-poppins font-semibold leading-5 tracking-wide">
                 Submitted Test
               </h2>
               <div>
@@ -203,8 +203,66 @@ const HomeContent = () => {
       </div>
 
       {/* Right Column: Card 2 */}
-      <div className="border rounded-lg leading-3  bg-richblack-400 h-full w-full flex font-bold items-center justify-center sm:col-span-1 sm:mt-0 mt-4">
-        <div>Card 2</div>
+      <div className=" rounded-lg leading-3 h-full w-full flex flex-col font-bold sm:col-span-1 sm:mt-0 mt-4">
+        <div className="p-4 flex justify-between border-b border-[#e4e4ea] bg-white">
+          <div className="flex items-center space-x-2">
+            <div className="w-14 h-14 flex-shrink-0 mr-2 sm:mr-3 rounded-full shadow-lg">
+              <img
+                className="rounded-full shadow-lg"
+                src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
+                width="60"
+                height="60"
+                alt="Mirko Fisuk"
+              />
+            </div>
+            <div>
+              <h2 className="font-poppins font-semibold leading-5 tracking-normal">
+                Monica Howard
+              </h2>
+              <p className="text-sm font-normal font-lato tracking-wide text-[#8F8B8B]">
+                Maths Teacher
+              </p>
+            </div>
+          </div>
+          <div className="flex space-x-1">
+            <div className="w-2 h-2 rounded-full bg-[#3cb493]"></div>
+            <p className="text-[#3cb493]">online</p>
+          </div>
+        </div>
+        {/* Calender */}
+        <CalendarComponent />
+        {/* TimeLine */}
+        <div className="p-4 flex justify-between border-b flex-col border-[#e4e4ea] bg-white">
+          <h2 className="text-xl font-medium">TimeLine</h2>
+          <div className="">
+            <div className="mt-4 bg-[#f8f8fe] rounded-md shadow-sm p-4 flex flex-col space-y-3">
+              <div className="font-medium text-base text-[#333333]">
+                Solve real time problem
+              </div>
+              <div className="flex justify-between">
+                <div className="font-semibold text-sm text-[#f2816c]">
+                  Class 10th
+                </div>
+                <div className="font-normal text-sm text-[#4540df]">
+                  10:00 AM
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 bg-[#f8f8fe] rounded-md shadow-sm p-4 flex flex-col space-y-3">
+              <div className="font-medium text-base text-[#333333]">
+                Solve real time problem
+              </div>
+              <div className="flex justify-between">
+                <div className="font-semibold text-sm text-[#f2816c]">
+                  Class 10th
+                </div>
+                <div className="font-normal text-sm text-[#4540df]">
+                  10:00 AM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
