@@ -8,8 +8,9 @@ const HomeContent = () => {
     { label: 'License', href: '#' },
     { label: 'Sign out', onClick: () => alert('Signing out...') },
   ];
+
   return (
-    <div className="bg-white grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 sm:space-x-0  p-4">
+    <div className="bg-[#f8f8fe] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 sm:space-x-0 p-4">
       {/* Left Column: Cards 1, 2, and 3 */}
       <div className="space-y-4 col-span-1 sm:col-span-2 lg:col-span-2 lg:mr-4 mr-0">
         {/* Card 1 */}
@@ -19,69 +20,174 @@ const HomeContent = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="border rounded-lg w-full h-72 flex ">
-          <div className="w-full">
-            <div className="flex justify-between items-center p-4">
-              <h2>Submitted Test</h2>
-              <div className="">
+        <div className="border border-white rounded-lg w-full h-[350px] flex shadow-sm bg-white">
+          <div className="w-full px-4 py-2">
+            <div className="flex justify-between items-center ">
+              <h2 className=" font-poppins font-semibold leading-5 tracking-wider">
+                Submitted Test
+              </h2>
+              <div>
                 <DropdownMenu buttonLabel="Options" items={menuItems} />
               </div>
             </div>
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                  <tr>
-                    <th scope="col" class="px-6 py-3">
-                      Product name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Color
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Category
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Price
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-4">Silver</td>
-                    <td class="px-6 py-4">Laptop</td>
-                    <td class="px-6 py-4">$2999</td>
-                  </tr>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Microsoft Surface Pro
-                    </th>
-                    <td class="px-6 py-4">White</td>
-                    <td class="px-6 py-4">Laptop PC</td>
-                    <td class="px-6 py-4">$1999</td>
-                  </tr>
-                  <tr class="bg-white dark:bg-gray-800">
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Magic Mouse 2
-                    </th>
-                    <td class="px-6 py-4">Black</td>
-                    <td class="px-6 py-4">Accessories</td>
-                    <td class="px-6 py-4">$99</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {/* Table */}
+            <section className="antialiased  text-richblack-600 mt-2">
+              <div className="flex flex-col justify-center h-full">
+                <div className="w-full max-w-2xl mx-auto bg-[white]  rounded-lg border border-[#e4e4ea] overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="table-auto w-full rounded-lg">
+                      <thead className="text-xs font-semibold uppercase text-richblack-400 bg-[#f9f9f1]">
+                        <tr>
+                          <th className="p-2 whitespace-nowrap">
+                            <div className="font-semibold text-left">Name</div>
+                          </th>
+                          <th className="p-2 whitespace-nowrap">
+                            <div className="font-semibold text-left">
+                              Date of Submission
+                            </div>
+                          </th>
+                          <th className="p-2 whitespace-nowrap">
+                            <div className="font-semibold text-left">
+                              Status
+                            </div>
+                          </th>
+                          <th className="p-2 whitespace-nowrap">
+                            <div className="font-semibold text-center">
+                              Action
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-sm divide-y divide-[#e4e4ea]">
+                        <tr>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                                <img
+                                  className="rounded-full"
+                                  src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
+                                  width="40"
+                                  height="40"
+                                  alt="Alex Shatov"
+                                />
+                              </div>
+                              <div className="font-medium text-richblack-800">
+                                Alex Shatov
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-left">December 17, 2024</div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-left font-medium text-green-500">
+                              <div class="rounded-full font-bold bg-[#ececfc] py-0.5 px-2 text-center border border-transparent text-sm text-[#8682ea] transition-all shadow-sm">
+                                Active
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-lg text-center">🇺🇸</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                                <img
+                                  className="rounded-full"
+                                  src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg"
+                                  width="40"
+                                  height="40"
+                                  alt="Philip Harbach"
+                                />
+                              </div>
+                              <div className="font-medium text-richblack-800">
+                                Philip Harbach
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-left">December 17, 2024</div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div class="rounded-full font-bold bg-[#ececfc] py-0.5 px-2 text-center border border-transparent text-sm text-[#8682ea] transition-all shadow-sm">
+                              Active
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-lg text-center">🇩🇪</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                                <img
+                                  className="rounded-full"
+                                  src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg"
+                                  width="40"
+                                  height="40"
+                                  alt="Philip Harbach"
+                                />
+                              </div>
+                              <div className="font-medium text-richblack-800">
+                                Philip Harbach
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-left">December 17, 2024</div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div class="rounded-full bg-[#f6e4d0] py-0.5 px-2 border border-transparent text-sm text-center text-[#f5b070] font-bold transition-all shadow-sm">
+                              Opened
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-lg text-center">🇩🇪</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                                <img
+                                  className="rounded-full"
+                                  src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
+                                  width="40"
+                                  height="40"
+                                  alt="Mirko Fisuk"
+                                />
+                              </div>
+                              <div className="font-medium text-richblack-800">
+                                Mirko Fisuk
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-left">December 17, 2024</div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div class="rounded-full bg-[#ffc8c3] py-0.5 px-2 border border-transparent text-sm text-[#f59582] font-bold text-center transition-all shadow-sm">
+                              Completed
+                            </div>
+                          </td>
+                          <td className="p-2 whitespace-nowrap">
+                            <div className="text-lg text-center">🇫🇷</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="flex justify-end px-4 mt-1">
+                  <p className="font-semibold text-sm text-[#bdbcbc] hover:text-[#8E8E93] cursor-pointer">
+                    View more
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
 
@@ -97,7 +203,7 @@ const HomeContent = () => {
       </div>
 
       {/* Right Column: Card 2 */}
-      <div className="border rounded-lg bg-richblack-400 h-full w-full flex items-center justify-center sm:col-span-1 sm:mt-0 mt-4">
+      <div className="border rounded-lg leading-3  bg-richblack-400 h-full w-full flex font-bold items-center justify-center sm:col-span-1 sm:mt-0 mt-4">
         <div>Card 2</div>
       </div>
     </div>
