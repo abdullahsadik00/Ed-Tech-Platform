@@ -20,9 +20,9 @@ const CalendarComponent = () => {
     'December',
   ];
 
+  // Update the `date` whenever `month` or `year` changes
   useEffect(() => {
-    const currentMonth = new Date(year, month);
-    setDate(currentMonth);
+    setDate(new Date(year, month, date.getDate()));
   }, [month, year]);
 
   // Function to generate the calendar days
@@ -34,7 +34,6 @@ const CalendarComponent = () => {
 
     let days = [];
 
-    // Add days from the previous month
     for (let i = firstDayOfMonth; i > 0; i--) {
       days.push({
         date: lastDateOfPreviousMonth - i + 1,
@@ -42,7 +41,6 @@ const CalendarComponent = () => {
       });
     }
 
-    // Add days of the current month
     for (let i = 1; i <= lastDateOfMonth; i++) {
       const isToday =
         i === date.getDate() &&
@@ -59,14 +57,13 @@ const CalendarComponent = () => {
     return days;
   };
 
-  // Handle next and previous month navigation
   const handleNavigation = (direction) => {
     if (direction === 'prev') {
       // Decrease month
       let newMonth = month - 1;
       let newYear = year;
       if (newMonth < 0) {
-        newMonth = 11; // Wrap to December
+        newMonth = 11;
         newYear = year - 1;
       }
       setMonth(newMonth);
@@ -76,7 +73,7 @@ const CalendarComponent = () => {
       let newMonth = month + 1;
       let newYear = year;
       if (newMonth > 11) {
-        newMonth = 0; // Wrap to January
+        newMonth = 0;
         newYear = year + 1;
       }
       setMonth(newMonth);
@@ -87,19 +84,19 @@ const CalendarComponent = () => {
   const days = generateCalendar();
 
   return (
-    <div className="flex  ">
-      <div className="bg-white  shadow-xl w-96">
+    <div className="flex">
+      <div className="bg-white shadow-xl w-full">
         <header className="flex items-center justify-between p-6">
           <p className="text-xl font-medium">{`${months[month]} ${year}`}</p>
           <div className="flex space-x-2">
             <button
-              className="p-2 py-2.5 text-richblack-600 hover:bg-richblack-100 rounded-md"
+              className="px-[7px] py-[5px] text-richblack-600 hover:bg-richblack-100 rounded-md flex items-center justify-center"
               onClick={() => handleNavigation('prev')}
             >
               <span className="material-symbols-rounded">&larr;</span>
             </button>
             <button
-              className="p-2 text-richblack-600 hover:bg-richblack-100 rounded-md"
+              className="px-[7px] py-[5px] text-richblack-600 hover:bg-richblack-100 rounded-md flex items-center justify-center"
               onClick={() => handleNavigation('next')}
             >
               <span className="material-symbols-rounded">&rarr;</span>
@@ -121,7 +118,7 @@ const CalendarComponent = () => {
             {days.map((day, index) => (
               <li
                 key={index}
-                className={`relative text-center px-[7px] py-[12px] cursor-pointer font-normal rounded-md ${
+                className={`relative text-center px-[7px] py-[5px] cursor-pointer font-normal rounded-md ${
                   day.isCurrentMonth
                     ? day.isToday
                       ? 'bg-[#4540df] text-white'

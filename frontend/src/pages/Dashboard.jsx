@@ -11,7 +11,7 @@ const Dashboard = () => {
       {/* Sidebar */}
       <Sidebar setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
       {/* Main content area */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 md:p-4">
         <Header />
         {/* Render HomeContent only if Home button is clicked */}
         {activeIndex === 0 && <HomeContent />}

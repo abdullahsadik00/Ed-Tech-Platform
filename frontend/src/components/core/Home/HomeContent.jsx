@@ -1,6 +1,7 @@
 import React from 'react';
-import DropdownMenu from '../../ui elements/DropdownMenu';
-import CalendarComponent from '../../ui elements/CalendarComponent';
+import DropdownMenu from '../../uiElements/DropdownMenu';
+import CalendarComponent from '../../uiElements/CalendarComponent';
+import teacherWelcomeImg from '../../../assets/img/teacherWelcomeImg.png';
 
 const HomeContent = () => {
   const menuItems = [
@@ -9,20 +10,33 @@ const HomeContent = () => {
     { label: 'License', href: '#' },
     { label: 'Sign out', onClick: () => alert('Signing out...') },
   ];
+
   return (
-    <div className="bg-[#f8f8fe] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 sm:space-x-0 p-4">
+    <div className="bg-[#f8f8fe] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-2 p-4">
       {/* Left Column: Cards 1, 2, and 3 */}
-      <div className="space-y-4 col-span-1 sm:col-span-2 lg:col-span-2 lg:mr-4 mr-0">
+      <div className="space-y-4 col-span-1 sm:col-span-1 lg:col-span-2 lg:mr-4 mr-0">
         {/* Card 1 */}
-        <div className="border rounded-lg bg-richblack-400 w-full h-28 flex items-center justify-center">
-          <span>Your students are doing great</span>
-          <span className="font-bold ml-2">60%</span>
+        <div className="bg-gradient-to-r from-[#4c4ac7] to-[#736fe7] rounded-lg w-full h-28 flex items-center justify-between p-4 pr-0">
+          <div className="flex w-[70%]">
+            <p className="text-base font-normal font-lato tracking-wide text-white">
+              Your students are doing great
+              <span className="font-bold ml-1 mr-1">60%</span>
+              students have completed the exam
+            </p>
+          </div>
+          <div className="w-[30%] h-[135px]">
+            <img
+              src={teacherWelcomeImg}
+              alt="Teacher Welcome"
+              className="h-full object-contain"
+            />
+          </div>
         </div>
 
         {/* Card 2 */}
         <div className="border border-white rounded-lg w-full h-[350px] flex shadow-sm bg-white">
           <div className="w-full px-4 py-2">
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center">
               <h2 className="font-poppins font-semibold leading-5 tracking-wide">
                 Submitted Test
               </h2>
@@ -31,9 +45,9 @@ const HomeContent = () => {
               </div>
             </div>
             {/* Table */}
-            <section className="antialiased  text-richblack-600 mt-2">
+            <section className="antialiased text-richblack-600 mt-2">
               <div className="flex flex-col justify-center h-full">
-                <div className="w-full max-w-2xl mx-auto bg-[white]  rounded-lg border border-[#e4e4ea] overflow-hidden">
+                <div className="w-full max-w-2xl mx-auto bg-white rounded-lg border border-[#e4e4ea] overflow-hidden">
                   <div className="overflow-x-auto">
                     <table className="table-auto w-full rounded-lg">
                       <thead className="text-xs font-semibold uppercase text-richblack-400 bg-[#f9f9f1]">
@@ -192,18 +206,105 @@ const HomeContent = () => {
         </div>
 
         {/* Cards 3 and 4 in a row */}
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-1 border rounded-lg bg-richblack-200 h-28 flex items-center justify-center">
-            <div>Top Students</div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="col-span-1 shadow-md rounded-lg bg-white flex flex-col">
+            <div className="flex justify-between p-4 items-center">
+              <h2 className="font-poppins font-semibold leading-5 tracking-wide">
+                Top Students
+              </h2>
+              <div>
+                <DropdownMenu buttonLabel="Options" items={menuItems} />
+              </div>
+            </div>
+            <div>
+              <div className="mt-4 bg-[#f8f8fe] rounded-md shadow-sm p-4 m-4 flex flex-col space-y-3 border border-white">
+                {/* Student item */}
+                <div className="flex items-center space-x-2">
+                  <div className="w-14 h-14 flex-shrink-0 mr-2 sm:mr-3 rounded-full shadow-lg">
+                    <img
+                      className="rounded-full shadow-lg"
+                      src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
+                      width="60"
+                      height="60"
+                      alt="Mirko Fisuk"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="font-poppins font-semibold leading-5 tracking-normal">
+                      Sadik Shaikh
+                    </h2>
+                    <p className="text-sm font-normal font-lato tracking-wide text-[#f2816c]">
+                      Overall Score 90%
+                    </p>
+                  </div>
+                </div>
+              </div>{' '}
+              <div className="mt-4 bg-[#f8f8fe] rounded-md shadow-sm p-4 m-4 flex flex-col space-y-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-14 h-14 flex-shrink-0 mr-2 sm:mr-3 rounded-full shadow-lg">
+                    <img
+                      className="rounded-full shadow-lg"
+                      src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
+                      width="60"
+                      height="60"
+                      alt="Mirko Fisuk"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="font-poppins font-semibold leading-5 tracking-normal">
+                      Sadik Shaikh
+                    </h2>
+                    <p className="text-sm font-normal font-lato tracking-wide text-[#f2816c]">
+                      Overall Score 90%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="col-span-2 border rounded-lg bg-richblack-100 h-28 flex items-center justify-center">
-            <div>Groups</div>
+
+          <div className="col-span-1 shadow-md rounded-lg bg-white flex flex-col">
+            <div className="flex justify-between p-4 items-center">
+              <h2 className="font-poppins font-semibold leading-5 tracking-wide">
+                Groups
+              </h2>
+              <div>
+                <p className="font-semibold text-sm text-[#bdbcbc] hover:text-[#8E8E93] cursor-pointer">
+                  View All &rarr;
+                </p>
+              </div>
+            </div>
+            <div className="m-4 bg-[#f8f8fe] rounded-md shadow-sm px-1 py-3 flex flex-col space-y-3 border border-white">
+              {/* Group items */}
+              <div className="flex items-center space-x-1">
+                <div className="w-14 h-14 flex-shrink-0 mr-2 sm:mr-3 rounded-md shadow-lg">
+                  <img
+                    className="rounded-md shadow-lg"
+                    src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
+                    width="60"
+                    height="60"
+                    alt="Mirko Fisuk"
+                  />
+                </div>
+                <div className="w-full">
+                  <div className="flex justify-between">
+                    <h2 className="font-poppins font-semibold leading-5 tracking-normal">
+                      Teacher's Group
+                    </h2>
+                    <div className="w-2 h-2 rounded-full bg-[#4540df]"></div>
+                  </div>
+                  <p className="text-sm font-normal font-lato tracking-wide text-[#bdbcbc] overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px]">
+                    Faisal Shaikh: I'm facing issue with the following topic ...
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Right Column: Card 2 */}
-      <div className=" rounded-lg leading-3 h-full w-full flex flex-col font-bold sm:col-span-1 sm:mt-0 mt-4">
+      <div className="rounded-lg leading-3 h-full w-full flex flex-col font-bold sm:col-span-1 sm:mt-0 mt-4">
         <div className="p-4 flex justify-between border-b border-[#e4e4ea] bg-white">
           <div className="flex items-center space-x-2">
             <div className="w-14 h-14 flex-shrink-0 mr-2 sm:mr-3 rounded-full shadow-lg">
@@ -229,12 +330,12 @@ const HomeContent = () => {
             <p className="text-[#3cb493]">online</p>
           </div>
         </div>
-        {/* Calender */}
+        {/* Calendar */}
         <CalendarComponent />
         {/* TimeLine */}
         <div className="p-4 flex justify-between border-b flex-col border-[#e4e4ea] bg-white">
           <h2 className="text-xl font-medium">TimeLine</h2>
-          <div className="">
+          <div>
             <div className="mt-4 bg-[#f8f8fe] rounded-md shadow-sm p-4 flex flex-col space-y-3">
               <div className="font-medium text-base text-[#333333]">
                 Solve real time problem
