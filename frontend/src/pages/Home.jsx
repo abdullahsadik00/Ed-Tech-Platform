@@ -12,6 +12,7 @@ import Feature from '../components/core/Home/Feature';
 import Testimonial from '../components/core/Home/Testimonial';
 import Faq from '../components/core/Home/Faq';
 import AboutUs from '../components/core/Home/AboutUs';
+import Statistic from '../components/core/Home/Statistic';
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <AboutUs />
+      <Statistic />
       <Feature />
       <Faq />
       <Testimonial />
