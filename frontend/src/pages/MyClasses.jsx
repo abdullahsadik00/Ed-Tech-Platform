@@ -85,6 +85,21 @@ const MySchedule = () => {
         </p>
       </div>
 
+      <div>
+        {/* <!-- Example Text: Mobile to Laptop/Tablet --> */}
+        <p class="text-sm md:text-base lg:text-lg xl:text-xl">
+          This is responsive text that adjusts its size depending on the screen
+          size.
+        </p>
+
+        {/* <!-- Example Headings: Mobile to Laptop/Tablet --> */}
+        <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+          Main Heading
+        </h1>
+        <h2 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+          Secondary Heading
+        </h2>
+      </div>
       {/* List of Classes */}
       <ul className="class-list mt-4 space-y-4">
         {classes.map((classItem) => (
