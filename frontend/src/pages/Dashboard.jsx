@@ -5,6 +5,8 @@ import Header from '../components/core/Home/Header';
 import MyClasses from './MyClasses';
 import TableComponent from './TableComponent';
 import Grades from './Grades';
+import TimeTable from './TimeTable';
+import Courses from './Courses';
 
 const Dashboard = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -30,6 +32,8 @@ const Dashboard = () => {
         {activeIndex === 1 && <MyClasses />}
         {activeIndex === 2 && <TableComponent />}
         {activeIndex === 3 && <Grades />}
+        {activeIndex === 4 && <Courses />}
+        {activeIndex === 5 && <TimeTable />}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const Sidebar = ({ setActiveIndex, activeIndex }) => {
     'My Classes',
     'Profile',
     'Grades',
-    'Settings',
+    'Courses',
     'Notifications',
     'Messages',
   ];
