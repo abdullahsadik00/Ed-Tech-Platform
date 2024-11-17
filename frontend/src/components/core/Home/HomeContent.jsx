@@ -24,6 +24,7 @@ const HomeContent = () => {
               students have completed the exam
             </p>
           </div>
+
           <div className="w-[30%] h-[135px]">
             <img
               src={teacherWelcomeImg}
