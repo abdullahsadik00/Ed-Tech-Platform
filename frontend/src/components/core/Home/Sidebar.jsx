@@ -79,17 +79,21 @@ const Sidebar = ({ setActiveIndex, activeIndex }) => {
             >
               <div className="mr-2">
                 {/* Show the icon based on hover or active state */}
-                <img
-                  src={
-                    hoveredIndex === index || activeIndex === index
-                      ? User_list
-                      : User_circle
-                  }
-                  alt={item.label}
-                  className={`transition-all ${
-                    isSidebarCollapsed ? 'w-6 h-6' : 'w-8 h-8'
-                  }`}
-                />
+                {isSidebarCollapsed ? (
+                  <p>{item.icon}</p>
+                ) : (
+                  <img
+                    src={
+                      hoveredIndex === index || activeIndex === index
+                        ? User_list
+                        : User_circle
+                    }
+                    alt={item.label}
+                    className={`transition-all ${
+                      isSidebarCollapsed ? 'w-6 h-6' : 'w-8 h-8'
+                    }`}
+                  />
+                )}
               </div>
 
               {/* Show label only when sidebar is expanded */}
