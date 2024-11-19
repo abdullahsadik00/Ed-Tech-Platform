@@ -1,6 +1,7 @@
 import React from 'react';
 import contactUs from '../assets/img/contactUs.png';
 import Navbar from '../components/core/Home/Navbar';
+import Footer from '../components/core/Footer';
 
 const ContactUs = () => {
   return (
@@ -98,6 +99,7 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

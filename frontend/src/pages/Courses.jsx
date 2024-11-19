@@ -174,7 +174,12 @@ const Courses = () => {
                 />
                 <div></div>
               </div>
-              <div className="grid grid-cols-5 w-full border">
+
+              <div
+                className={`grid grid-cols-5 w-full border ${
+                  inputValue.length > 5 ? 'h-[70px]' : ''
+                }`}
+              >
                 <div className="col-span-2 flex space-x-2 border-2 border-yellow-25">
                   <div className="w-6 h-6">
                     <img src={close} alt="" />
@@ -183,18 +188,18 @@ const Courses = () => {
                 </div>
                 <div className="relative col-span-3">
                   {/* Input Field */}
-                  {/* <input
+                  <input
                     ref={inputRef}
                     type="text"
-                    value={inputValue}
+                    // value={inputValue}
                     onClick={() => setIsModalOpen(true)}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full p-2  focus:outline-none "
-                    placeholder="Empty"
-                  /> */}
+                    className="w-full p-2  focus:outline-none absolute top-0 left-0"
+                    placeholder={inputValue.length > 0 ? '' : 'Empty'}
+                  />
                   <div
                     ref={inputRef}
-                    className="space-x-2 flex flex-wrap"
+                    className="space-x-2 flex flex-wrap absolute top-0 left-0"
                     onClick={() => setIsModalOpen(true)}
                     onChange={(e) => setInputValue(e.target.value)}
                   >
@@ -202,7 +207,7 @@ const Courses = () => {
                       <span
                         key={tag}
                         // onClick={() => handleTagClick(tag)}
-                        className="px-2 py-1 bg-richblack-300/10 rounded-lg m-2 hover:bg-richblack-300/15 tracking-wider font-medium text-xs text-left font-lato text-[#616161]
+                        className="px-2 py-1 bg-richblack-300/10 rounded-lg m-1 hover:bg-richblack-300/15 tracking-wider font-medium text-xs text-left font-lato text-[#616161]
                                cursor-pointer  "
                       >
                         {tag}
