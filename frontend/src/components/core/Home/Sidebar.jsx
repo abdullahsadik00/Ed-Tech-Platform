@@ -27,9 +27,17 @@ const Sidebar = ({ setActiveIndex, activeIndex }) => {
   return (
     <motion.aside
       // Add hover animation for list item scaling
-      whileHover={() => setIsSidebarCollapsed(false)}
+      // whileHover={() => setIsSidebarCollapsed(false)}
       onMouseEnter={() => setIsSidebarCollapsed(true)} // Set the hovered index when mouse enters
-      onMouseLeave={() => setIsSidebarCollapsed(true)} // Reset hovered index when mouse leaves
+      onMouseLeave={() => setIsSidebarCollapsed(true)} // Reset hovered index when mouse leaves\
+      transition={{
+        duration: 0.3, // Shorter transition duration for smoother effect
+        ease: 'easeInOut', // Ease for a smooth effect
+      }}
+      animate={{
+        width: isSidebarCollapsed ? '4rem' : '16rem', // Dynamically change width
+        // opacity: isSidebarCollapsed ? 0.6 : 1, // Fade effect on collapse
+      }}
       className={`bg-[#f8f8f8] text-wrap border border-white ${
         isSidebarCollapsed ? 'w-16' : 'w-64'
       } transition-all relative`}
@@ -46,10 +54,17 @@ const Sidebar = ({ setActiveIndex, activeIndex }) => {
       >
         {isSidebarCollapsed ? '>' : '<'}
       </button>
-      <motion.nav className="mt-5">
+      <motion.nav
+        className="mt-5"
+        transition={{ duration: 5, delay: 1, ease: 'linear' }}
+      >
         <ul>
           {menuItems.map((item, index) => (
             <motion.li
+              animate={{
+                // width: isSidebarCollapsed ? '4rem' : '16rem', // Dynamically change width
+                opacity: isSidebarCollapsed ? 0.6 : 1, // Fade effect on collapse
+              }}
               key={index}
               className={`py-2 px-4 my-2 mx-4 transition-all flex items-center hover:border hover:rounded-md ${
                 hoveredIndex === index || activeIndex === index
