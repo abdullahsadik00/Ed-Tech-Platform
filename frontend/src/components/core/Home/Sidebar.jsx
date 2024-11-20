@@ -35,7 +35,7 @@ const Sidebar = ({ setActiveIndex, activeIndex }) => {
         ease: 'easeInOut', // Ease for a smooth effect
       }}
       animate={{
-        width: isSidebarCollapsed ? '4rem' : '16rem', // Dynamically change width
+        width: isSidebarCollapsed ? '64px' : '256px', // Dynamically change width
         // opacity: isSidebarCollapsed ? 0.6 : 1, // Fade effect on collapse
       }}
       className={`bg-[#f8f8f8] text-wrap border border-white ${
