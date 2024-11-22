@@ -27,44 +27,40 @@ const Hero = () => {
               Brand new
             </p>
             <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              Everything you
+              Start Learning
               <br className="hidden md:block" />
-              can imagine{' '}
+              and{' '}
               <span className="inline-block text-deep-purple-accent-400">
-                is real
+                Have Fun
               </span>
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              Discover an exciting way to learn with our interactive and
+              engaging platform. Whether you're a student or teacher, education
+              has never been this fun.
             </p>
             <div className="flex items-center">
               <a
                 href="/"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide border-[#e7e7e7] transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
               >
                 Get started
               </a>
-              <a
+              {/* <a
                 href="/"
                 aria-label=""
                 className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
               >
                 Learn more
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
       </div>
-      <header>
-        {/* Hero Container */}
+      {/* <header>
         <div className="mx-auto w-full max-w-7xl px-5 pt-16 md:px-10 md:pt-10">
-          {/* Component */}
           <div className="grid items-center justify-items-start gap-8 sm:gap-20 lg:grid-cols-2">
-            {/* Hero Content */}
             <div className="flex flex-col">
-              {/* Hero Title */}
               <h1 className="mb-4 text-4xl font-bold md:text-6xl font-poppins">
                 Start Learning and Have Fun
               </h1>
@@ -73,7 +69,6 @@ const Hero = () => {
                 engaging platform. Whether you're a student or teacher,
                 education has never been this fun.
               </p>
-              {/* Hero Button */}
               <div className="flex items-center">
                 <a
                   href="#"
@@ -83,7 +78,6 @@ const Hero = () => {
                 </a>
               </div>
             </div>
-            {/* Hero Image */}
             <img
               src={bg}
               alt=""
@@ -91,7 +85,7 @@ const Hero = () => {
             />
           </div>
         </div>
-      </header>{' '}
+      </header>{' '} */}
     </>
   );
 };

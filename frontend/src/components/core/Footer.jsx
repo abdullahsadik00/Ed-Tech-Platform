@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <>
       {/* Starts Footer */}
-      <footer className="relative z-10 bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+      {/* <footer className="relative z-10 bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
@@ -215,7 +215,7 @@ const Footer = () => {
             </svg>
           </span>
         </div>
-      </footer>
+      </footer> */}
       {/* Ends Footer */}
       <footer className="footer bg-[#323842] w-full ">
         <div className="container mx-auto max-w-5xl border-1 pt-10 pb-4 sm:mx-auto sm:max-w-2xl">

@@ -7,6 +7,7 @@ import TableComponent from './TableComponent';
 import Grades from './Grades';
 import TimeTable from './TimeTable';
 import Courses from './Courses';
+// import { SidebarDemo } from '../components/core/Home/Sidebar1';
 
 const Dashboard = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,6 +15,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex h-screen">
+      {/* <SidebarDemo /> */}
       {/* Sidebar */}
       <Sidebar
         setActiveIndex={setActiveIndex}

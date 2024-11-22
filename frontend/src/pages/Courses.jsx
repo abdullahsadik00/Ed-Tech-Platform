@@ -35,7 +35,7 @@ const Courses = () => {
   const [description, setDescription] = useState('');
   const handleInputChange = (event) => {};
   const characterLimit = 100;
-  const [tags] = useState([
+  const [tags, setTags] = useState([
     'React',
     'JavaScript',
     'CSS',
@@ -49,6 +49,7 @@ const Courses = () => {
   const modalRef = useRef(null);
   const inputRef = useRef(null);
   const [isOnCLick, setIsOnCLick] = useState(false);
+
   // Close modal if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -81,11 +82,15 @@ const Courses = () => {
     });
   };
 
-  const handleCreateTag = (e) => {
-    console.log(e.target.va);
+  const handleCreateTag = (tag) => {
+    if (tag && !tags.includes(tag)) {
+      // Check if tag is non-empty and unique
+      setTags((prevTags) => [...prevTags, tag]); // Add new tag to state
+      console.log('New tag created:', tag);
+    } else {
+      console.error('Tag already exists or is empty.');
+    }
   };
-  const [selectedTags, setSelectedTags] = useState([]); // Store selected tags
-
   return (
     <div>
       {/* Button to open the first dialog */}
@@ -174,7 +179,12 @@ const Courses = () => {
                 />
                 <div></div>
               </div>
-              <div className="grid grid-cols-5 w-full border">
+
+              <div
+                className={`grid grid-cols-5 w-full border ${
+                  inputValue.length > 5 ? 'h-[70px]' : ''
+                }`}
+              >
                 <div className="col-span-2 flex space-x-2 border-2 border-yellow-25">
                   <div className="w-6 h-6">
                     <img src={close} alt="" />
@@ -183,18 +193,26 @@ const Courses = () => {
                 </div>
                 <div className="relative col-span-3">
                   {/* Input Field */}
-                  {/* <input
+                  <input
                     ref={inputRef}
                     type="text"
-                    value={inputValue}
+                    // value={inputValue}
                     onClick={() => setIsModalOpen(true)}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full p-2  focus:outline-none "
-                    placeholder="Empty"
-                  /> */}
+                    className="w-full p-2  focus:outline-none absolute top-0 left-0"
+                    placeholder={inputValue.length > 0 ? '' : 'Empty'}
+                    onKeyDown={(e) => {
+                      if (e.key === ',' || e.key === 'Enter') {
+                        e.preventDefault(); // Prevent form submission
+                        const newTag = e.target.value.trim();
+                        handleCreateTag(newTag); // Call function to create tag
+                        e.target.value = ''; // Clear input
+                      }
+                    }}
+                  />
                   <div
                     ref={inputRef}
-                    className="space-x-2 flex flex-wrap"
+                    className="space-x-2 flex flex-wrap absolute top-0 left-0"
                     onClick={() => setIsModalOpen(true)}
                     onChange={(e) => setInputValue(e.target.value)}
                   >
@@ -202,7 +220,7 @@ const Courses = () => {
                       <span
                         key={tag}
                         // onClick={() => handleTagClick(tag)}
-                        className="px-2 py-1 bg-richblack-300/10 rounded-lg m-2 hover:bg-richblack-300/15 tracking-wider font-medium text-xs text-left font-lato text-[#616161]
+                        className="px-2 py-1 bg-richblack-300/10 rounded-lg m-1 hover:bg-richblack-300/15 tracking-wider font-medium text-xs text-left font-lato text-[#616161]
                                cursor-pointer  "
                       >
                         {tag}
@@ -241,6 +259,7 @@ const Courses = () => {
                                 name=""
                                 id=""
                                 onChange={(e) => handleCreateTag(e)}
+                                className="outline-none"
                               />
                             </div>
                           )}
@@ -266,7 +285,7 @@ const Courses = () => {
                         <div className="border-t pt-2 flex justify-end">
                           <button
                             data-dialog-close="true"
-                            onClick={openSecondDialog} // Open second modal
+                            onClick={() => setIsModalOpen(false)} // Open second modal
                             className="rounded-md bg-green-600 py-2 px-4 border border-[#e2e2e2] font-bold text-center text-sm text-richblack-700 transition-all shadow-sm hover:shadow-lg active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
                             type="button"
                           >
