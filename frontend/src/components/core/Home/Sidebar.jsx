@@ -1,117 +1,229 @@
 import React, { useState } from 'react';
-import User_circle from '../../../assets/icons/User_list.svg'; // Regular user icon
-import User_list from '../../../assets/icons/User_list.png'; // Active/hovered user icon
-import { motion } from 'framer-motion';
+import SidebarHeader from '../../Sidebar/sidebarHeader';
+import SidebarItem from '../../Sidebar/SidebarItem';
+import MobileMenuButton from '../../Sidebar/MobileMenuButton';
+import { menuItems } from '../../Sidebar/menuItems';
 
 const Sidebar = ({ setActiveIndex, activeIndex }) => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  // List of menu items
-  const menuItems = [
-    { label: 'Home', icon: '🏠' },
-    { label: 'My Classes', icon: '📚' },
-    { label: 'Profile', icon: '👤' },
-    { label: 'Grades', icon: '📊' },
-    { label: 'Courses', icon: '📖' },
-    { label: 'Notifications', icon: '🔔' },
-    { label: 'Messages', icon: '💬' },
-  ];
+  const handleItemClick = (index) => {
+    setActiveIndex(index);
+    setIsMobileOpen(false);
+  };
 
-  // Handle click to set the active state
-  const handleClick = (index) => {
-    setActiveIndex(index); // Set the active index when a menu item is clicked
-    setIsSidebarCollapsed(false); // Close the sidebar when a menu item is clicked
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  const toggleMobileSidebar = () => {
+    setIsMobileOpen(!isMobileOpen);
   };
 
   return (
-    <motion.aside
-      // Add hover animation for list item scaling
-      // whileHover={() => setIsSidebarCollapsed(false)}
-      onMouseEnter={() => setIsSidebarCollapsed(true)} // Set the hovered index when mouse enters
-      onMouseLeave={() => setIsSidebarCollapsed(true)} // Reset hovered index when mouse leaves\
-      transition={{
-        duration: 0.3, // Shorter transition duration for smoother effect
-        ease: 'easeInOut', // Ease for a smooth effect
-      }}
-      animate={{
-        width: isSidebarCollapsed ? '64px' : '256px', // Dynamically change width
-        // opacity: isSidebarCollapsed ? 0.6 : 1, // Fade effect on collapse
-      }}
-      className={`bg-[#f8f8f8] text-wrap border border-white ${
-        isSidebarCollapsed ? 'w-16' : 'w-64'
-      } transition-all relative`}
-    >
-      {isSidebarCollapsed ? (
-        <p>D</p>
-      ) : (
-        <div className="p-4 text-2xl font-bold">Dashboard</div>
+    <>
+      <MobileMenuButton toggleMobileSidebar={toggleMobileSidebar} />
+
+      {/* Overlay for mobile */}
+      {isMobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMobileOpen(false)}
+        />
       )}
 
-      <button
-        onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-        className="absolute top-4 right-4 md:hidden bg-gray-500 text-white p-2 rounded"
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed top-0 left-0 h-full bg-white shadow-xl z-40
+          transition-all duration-300 ease-in-out
+          ${isCollapsed ? 'w-20' : 'w-64'}
+          ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}
+          md:translate-x-0
+        `}
       >
-        {isSidebarCollapsed ? '>' : '<'}
-      </button>
-      <motion.nav
-        className="mt-5"
-        transition={{ duration: 5, delay: 1, ease: 'linear' }}
-      >
-        <ul>
-          {menuItems.map((item, index) => (
-            <motion.li
-              animate={{
-                // width: isSidebarCollapsed ? '4rem' : '16rem', // Dynamically change width
-                opacity: isSidebarCollapsed ? 0.6 : 1, // Fade effect on collapse
-              }}
-              key={index}
-              className={`py-2 px-4 my-2 mx-4 transition-all flex items-center hover:border hover:rounded-md ${
-                hoveredIndex === index || activeIndex === index
-                  ? 'bg-[#636AE8] text-white border-[#636AE8]'
-                  : ''
-              }`}
-              // Add hover animation for list item scaling
-              whileHover={() => setIsSidebarCollapsed(false)}
-              onMouseEnter={() => setHoveredIndex(index)} // Set the hovered index when mouse enters
-              onMouseLeave={() => setHoveredIndex(null)} // Reset hovered index when mouse leaves
-              onClick={() => handleClick(index)} // Set active state on click
-            >
-              <div className="mr-2">
-                {/* Show the icon based on hover or active state */}
-                {isSidebarCollapsed ? (
-                  <p>{item.icon}</p>
-                ) : (
-                  <img
-                    src={
-                      hoveredIndex === index || activeIndex === index
-                        ? User_list
-                        : User_circle
-                    }
-                    alt={item.label}
-                    className={`transition-all ${
-                      isSidebarCollapsed ? 'w-6 h-6' : 'w-8 h-8'
-                    }`}
-                  />
-                )}
-              </div>
+        <SidebarHeader
+          isCollapsed={isCollapsed}
+          toggleSidebar={toggleSidebar}
+        />
 
-              {/* Show label only when sidebar is expanded */}
-              {!isSidebarCollapsed && (
-                <span
-                  className={`transition-all ${
-                    isSidebarCollapsed ? 'opacity-0' : 'opacity-100'
-                  }`}
-                >
-                  {item.label}
-                </span>
-              )}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.nav>
-    </motion.aside>
+        {/* Navigation */}
+        <nav className="p-4">
+          <ul className="space-y-2">
+            {menuItems.map((item, index) => (
+              <SidebarItem
+                key={item.label}
+                item={item}
+                index={index}
+                isCollapsed={isCollapsed}
+                activeIndex={activeIndex}
+                onClick={handleItemClick}
+              />
+            ))}
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Content Margin */}
+      <div
+        className={`
+        transition-all duration-300 ease-in-out
+        ${isCollapsed ? 'md:ml-20' : 'md:ml-64'}
+      `}
+      />
+    </>
   );
 };
 
 export default Sidebar;
+// import React, { useState } from 'react';
+// import {
+//   Home,
+//   GraduationCap,
+//   UserCircle,
+//   LineChart,
+//   BookOpen,
+//   Bell,
+//   MessageCircle,
+//   ChevronLeft,
+//   ChevronRight,
+//   Menu,
+// } from 'lucide-react';
+
+// interface SidebarProps {
+//   setActiveIndex: (index: number) => void;
+//   activeIndex: number;
+// }
+
+// const menuItems = [
+//   { label: 'Home', icon: Home },
+//   { label: 'My Classes', icon: GraduationCap },
+//   { label: 'Profile', icon: UserCircle },
+//   { label: 'Grades', icon: LineChart },
+//   { label: 'Courses', icon: BookOpen },
+//   { label: 'Notifications', icon: Bell },
+//   { label: 'Messages', icon: MessageCircle },
+// ];
+
+// const Sidebar: React.FC<SidebarProps> = ({ setActiveIndex, activeIndex }) => {
+//   const [isCollapsed, setIsCollapsed] = useState(false);
+//   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+//   const handleItemClick = (index: number) => {
+//     setActiveIndex(index);
+//     setIsMobileOpen(false);
+//   };
+
+//   const toggleSidebar = () => {
+//     setIsCollapsed(!isCollapsed);
+//   };
+
+//   const toggleMobileSidebar = () => {
+//     setIsMobileOpen(!isMobileOpen);
+//   };
+
+//   return (
+//     <>
+//       {/* Mobile Menu Button */}
+//       <button
+//         onClick={toggleMobileSidebar}
+//         className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-white shadow-lg md:hidden"
+//       >
+//         <Menu className="w-6 h-6 text-gray-700" />
+//       </button>
+
+//       {/* Overlay for mobile */}
+//       {isMobileOpen && (
+//         <div
+//           className="fixed inset-0 bg-black/50 z-40 md:hidden"
+//           onClick={() => setIsMobileOpen(false)}
+//         />
+//       )}
+
+//       {/* Sidebar */}
+//       <aside
+//         className={`
+//           fixed top-0 left-0 h-full bg-white shadow-xl z-40
+//           transition-all duration-300 ease-in-out
+//           ${isCollapsed ? 'w-20' : 'w-64'}
+//           ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}
+//           md:translate-x-0
+//         `}
+//       >
+//         {/* Header */}
+//         <div className="flex items-center justify-between h-16 px-4 border-b">
+//           <h1
+//             className={`font-bold text-xl text-gray-800 transition-opacity duration-200
+//             ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100'}
+//           `}
+//           >
+//             Dashboard
+//           </h1>
+//           <button
+//             onClick={toggleSidebar}
+//             className="p-2 rounded-lg hover:bg-gray-100 hidden md:block"
+//           >
+//             {isCollapsed ? (
+//               <ChevronRight className="w-5 h-5 text-gray-600" />
+//             ) : (
+//               <ChevronLeft className="w-5 h-5 text-gray-600" />
+//             )}
+//           </button>
+//         </div>
+
+//         {/* Navigation */}
+//         <nav className="p-4">
+//           <ul className="space-y-2">
+//             {menuItems.map((item, index) => {
+//               const Icon = item.icon;
+//               return (
+//                 <li key={item.label}>
+//                   <button
+//                     onClick={() => handleItemClick(index)}
+//                     className={`
+//                       w-full flex items-center px-3 py-2 rounded-lg
+//                       transition-all duration-200 group
+//                       ${
+//                         activeIndex === index
+//                           ? 'bg-indigo-600 text-white'
+//                           : 'text-gray-700 hover:bg-gray-100'
+//                       }
+//                     `}
+//                   >
+//                     <Icon
+//                       className={`
+//                       w-5 h-5
+//                       ${activeIndex === index ? 'text-white' : 'text-gray-600'}
+//                       ${!isCollapsed && 'mr-3'}
+//                     `}
+//                     />
+//                     <span
+//                       className={`
+//                       whitespace-nowrap
+//                       ${isCollapsed ? 'opacity-0 w-0' : 'opacity-100 w-auto'}
+//                       transition-all duration-200
+//                     `}
+//                     >
+//                       {item.label}
+//                     </span>
+//                   </button>
+//                 </li>
+//               );
+//             })}
+//           </ul>
+//         </nav>
+//       </aside>
+
+//       {/* Content Margin */}
+//       <div
+//         className={`
+//         transition-all duration-300 ease-in-out
+//         ${isCollapsed ? 'md:ml-20' : 'md:ml-64'}
+//       `}
+//       />
+//     </>
+//   );
+// };
+
+// export default Sidebar;
