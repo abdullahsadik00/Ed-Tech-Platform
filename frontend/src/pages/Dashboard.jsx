@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/core/Home/Sidebar';
-import HomeContent from '../components/core/Home/HomeContent';
+import HomeContent from '../components/Dashboard/Home/HomeContent';
 import Header from '../components/Header/Header';
 import MyClasses from './MyClasses';
 import TableComponent from './TableComponent';
@@ -15,9 +15,7 @@ const Dashboard = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen">
-      {/* <SidebarDemo /> */}
-      {/* Sidebar */}
+    <div className="flex h-auto">
       <Sidebar
         setActiveIndex={setActiveIndex}
         activeIndex={activeIndex}
@@ -25,7 +23,7 @@ const Dashboard = () => {
       />
       {/* Main content area */}
       <div
-        className={`flex-1 md:p-4 bg-[#eee] ${
+        className={`flex-1 md:p-4 bg-accent-foreground ${
           isSidebarCollapsed ? '' : ''
         } transition-all`}
       >
