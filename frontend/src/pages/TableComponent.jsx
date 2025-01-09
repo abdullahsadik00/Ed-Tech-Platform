@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import DataTable from '../components/uiElements/DataTable';
+import { Download, MoreHorizontal } from 'lucide-react';
 
 const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,10 +32,74 @@ const TableComponent = () => {
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const columns = [
+    {
+      key: 'name',
+      header: 'Name',
+      className: 'pl-6',
+      render: (_, row) => (
+        <div className="flex items-center gap-3">
+          <span className="font-medium">{row.name}</span>
+        </div>
+      ),
+    },
+    {
+      key: 'profession',
+      header: 'Class',
+      render: (value) => <span className="">{value}</span>,
+    },
+    {
+      key: 'phone',
+      header: 'Phone',
+      render: (value) => <span className="">{value}</span>,
+    },
+    {
+      key: 'email',
+      header: 'email',
+      render: (value) => <span>{value}</span>,
+    },
+    {
+      key: 'birthday',
+      header: 'Birthday',
+      render: (value) => <span>{value}</span>,
+    },
+  ];
+
+  const tableActions = (
+    <div className="relative">
+      <button
+        onClick={() => setShowDropdown(!showDropdown)}
+        className="p-2 hover:bg-primary rounded-full"
+      >
+        <MoreHorizontal className="h-4 w-4" />
+      </button>
+
+      {showDropdown && (
+        <div className="absolute right-0 mt-2 w-48 rounded-md border border-border bg-white shadow-md">
+          <button
+            className="w-full px-4 py-2 text-left text-sm hover:bg-primary flex items-center"
+            onClick={() => setShowDropdown(false)}
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download Report
+          </button>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <div className="p-4">
-      <div className="flex justify-between items-center mb-4">
+      <DataTable
+        data={data}
+        columns={columns}
+        itemsPerPage={1}
+        title="Submitted Tests"
+        actions={tableActions}
+      />
+      {/* <div className="flex justify-between items-center mb-4">
         <input
           type="text"
           placeholder="Search..."
@@ -85,7 +151,7 @@ const TableComponent = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

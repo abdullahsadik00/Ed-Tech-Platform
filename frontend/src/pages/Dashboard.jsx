@@ -23,7 +23,7 @@ const Dashboard = () => {
       />
       {/* Main content area */}
       <div
-        className={`flex-1 md:p-4 bg-accent-foreground ${
+        className={`flex-1 bg-primary-50 dark:bg-background ${
           isSidebarCollapsed ? '' : ''
         } transition-all`}
       >

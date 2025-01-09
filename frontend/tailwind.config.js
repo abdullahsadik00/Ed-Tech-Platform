@@ -50,36 +50,6 @@ module.exports = {
           800: 'hsl(var(--secondary-800))',
           900: 'hsl(var(--secondary-900))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-          50: 'hsl(var(--accent-50))',
-          100: 'hsl(var(--accent-100))',
-          200: 'hsl(var(--accent-200))',
-          300: 'hsl(var(--accent-300))',
-          400: 'hsl(var(--accent-400))',
-          500: 'hsl(var(--accent-500))',
-          600: 'hsl(var(--accent-600))',
-          700: 'hsl(var(--accent-700))',
-          800: 'hsl(var(--accent-800))',
-          900: 'hsl(var(--accent-900))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
       },
       spacing: {
         4.5: '1.125rem',

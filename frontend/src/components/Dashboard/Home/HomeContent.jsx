@@ -1,17 +1,11 @@
 import React from 'react';
-import WelcomeCard from './Cards/WelcomeCard';
 import SubmittedTestsCard from './Cards/SubmittedTestsCard';
 import TopStudentsCard from './Cards/TopStudentsCard';
 import TeacherProfileCard from './Cards/TeacherProfileCard';
-// import SubmittedTestsCard from './cards/SubmittedTestsCard';
-// import TopStudentsCard from './cards/TopStudentsCard';
-// import GroupsCard from './cards/GroupsCard';
-// import TeacherProfileCard from './cards/TeacherProfileCard';
-// import TimelineCard from './cards/TimelineCard';
-
+import WelcomeCard from './cards/WelcomeCard';
 const HomeContent = () => {
   return (
-    <div className="container mx-auto p-4 space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-6">
+    <div className="container mx-auto p-4 space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-6 bg-primary-50 dark:bg-background">
       {/* Main Content */}
       <div className="lg:col-span-2 space-y-6">
         <WelcomeCard />
