@@ -12,7 +12,7 @@ const SidebarItem = ({ item, index, isCollapsed, activeIndex, onClick }) => {
           transition-all duration-200 group
           ${
             activeIndex === index
-              ? 'bg-accent-400 dark:bg-primary-300 text-white'
+              ? 'bg-primary-400 dark:bg-primary-300 text-white'
               : 'text-gray-700 hover:bg-gray-100'
           }
         `}

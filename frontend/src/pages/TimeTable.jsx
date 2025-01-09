@@ -20,89 +20,166 @@ const TimeTable = () => {
     }
     return dates;
   };
-  const getWeekSchedule = function () {
-    const schedule = {
-      Jan: {
-        0: [
-          {
-            id: '1',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-          {
-            id: '2',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-        ],
-        1: [
-          {
-            id: '1',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-          {
-            id: '2',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-        ],
-      },
-      Feb: {
-        0: [
-          {
-            id: '1',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-          {
-            id: '2',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-        ],
-        1: [
-          {
-            id: '1',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-          {
-            id: '2',
-            subject: 'Biology',
-            time: '07:00 - 08:00',
-            teacher: 'James Gause',
-            icon: '🧬',
-            color: 'bg-orange-100',
-          },
-        ],
-      },
-    };
-    const scheduleForWeek = {};
-    setWeekSchedule(schedule);
+  // const getWeekSchedule = function () {
+  // const schedule = {
+  //   Jan: {
+  //     0: [
+  //       {
+  //         id: '1',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //       {
+  //         id: '2',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //     ],
+  //     1: [
+  //       {
+  //         id: '1',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //       {
+  //         id: '2',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //     ],
+  //   },
+  //   Feb: {
+  //     0: [
+  //       {
+  //         id: '1',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //       {
+  //         id: '2',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //     ],
+  //     1: [
+  //       {
+  //         id: '1',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //       {
+  //         id: '2',
+  //         subject: 'Biology',
+  //         time: '07:00 - 08:00',
+  //         teacher: 'James Gause',
+  //         icon: '🧬',
+  //         color: 'bg-orange-100',
+  //       },
+  //     ],
+  //   },
+  // };
+  //   const scheduleForWeek = {};
+  //   setWeekSchedule(schedule);
+  // };
+  const schedule = {
+    Jan: {
+      0: [
+        {
+          id: '1',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+        {
+          id: '2',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+      ],
+      1: [
+        {
+          id: '1',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+        {
+          id: '2',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+      ],
+    },
+    Feb: {
+      0: [
+        {
+          id: '1',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+        {
+          id: '2',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+      ],
+      1: [
+        {
+          id: '1',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+        {
+          id: '2',
+          subject: 'Biology',
+          time: '07:00 - 08:00',
+          teacher: 'James Gause',
+          icon: '🧬',
+          color: 'bg-orange-100',
+        },
+      ],
+    },
   };
-
   useEffect(() => {
     setWeekDays(getWeekDays(currentDate));
   }, [currentDate]);

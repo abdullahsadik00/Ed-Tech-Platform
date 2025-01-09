@@ -9,8 +9,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         disabled={currentPage === 1}
         className="flex items-center gap-1 px-3 py-1 text-sm rounded-md 
           disabled:opacity-50 disabled:cursor-not-allowed
-          text-muted-foreground hover:text-white
-          hover:bg-accent dark:hover:bg-accent"
+          text-muted-foreground hover:text-white dark:hover:text-white
+          hover:bg-primary-300 dark:hover:bg-primary-300 dark:text-secondary-900"
       >
         <ChevronLeft className="h-4 w-4" />
         Previous
@@ -25,8 +25,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         disabled={currentPage === totalPages}
         className="flex items-center gap-1 px-3 py-1 text-sm rounded-md 
           disabled:opacity-50 disabled:cursor-not-allowed
-          text-muted-foreground hover:text-white
-          hover:bg-accent dark:hover:bg-accent"
+          text-muted-foreground hover:text-white dark:hover:text-slate-800
+          hover:bg-primary-300 dark:hover:bg-primary-300 dark:text-secondary-900"
       >
         Next
         <ChevronRight className="h-4 w-4" />

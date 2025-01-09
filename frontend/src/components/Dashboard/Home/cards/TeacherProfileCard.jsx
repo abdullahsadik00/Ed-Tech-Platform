@@ -24,7 +24,7 @@ const TeacherProfileCard = () => {
   const prevMonth = () => setCurrentDate(subMonths(currentDate, 1));
 
   return (
-    <div className="rounded-xl border border-border bg-card text-card-foreground shadow-sm dark:bg-card dark:border-border">
+    <div className="rounded-xl border border-border bg-white text-card-foreground shadow-sm dark:bg-card dark:border-border">
       <div className="border-b border-border p-6">
         <div className="flex items-center gap-4">
           <img
@@ -80,7 +80,10 @@ const TeacherProfileCard = () => {
                       ? 'bg-primary-300 text-primary-foreground hover:bg-secondary-300 dark:bg-primary-300 dark:text-primary-foreground dark:hover:bg-secondary-300'
                       : ''
                   }`}
-                onClick={() => setCurrentDate(day)}
+                onClick={() => {
+                  console.log('day selected', day);
+                  setCurrentDate(day);
+                }}
               >
                 {format(day, 'd')}
               </button>

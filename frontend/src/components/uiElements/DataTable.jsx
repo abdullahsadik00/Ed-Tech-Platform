@@ -57,7 +57,7 @@ const DataTable = ({
 
   return (
     <div
-      className={`rounded-xl border border-border bg-card text-card-foreground shadow-sm ${className}`}
+      className={`rounded-xl border border-border bg-white text-card-foreground shadow-sm ${className}`}
     >
       {(title || actions) && (
         <div className="flex items-center justify-between p-6">
@@ -69,7 +69,7 @@ const DataTable = ({
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-border text-xs font-medium text-muted-foreground">
+            <tr className="border-b border-border text-sm font-medium text-muted-foreground">
               {columns.map((column) => (
                 <th
                   key={column.key}
