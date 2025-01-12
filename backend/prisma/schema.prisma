@@ -486,7 +486,7 @@ model LoginHistory {
   location      String?
   device        String?
   loginAt       DateTime @default(now())
-  success       Boolean  @default(true)
+  hasError      Boolean  @default(true)
   failureReason String?
 
   // Relations
