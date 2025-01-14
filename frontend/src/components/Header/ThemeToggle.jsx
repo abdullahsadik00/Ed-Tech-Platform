@@ -6,14 +6,25 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-      aria-label="Toggle theme"
-    >
-      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-    </button>
+    <div className="mr-2">
+      {theme === 'dark' ? (
+        <button
+          onClick={() => setTheme('light')}
+          className="p-2 rounded-full hover:bg-gray-100 hover:text-gray-800 transition-colors duration-200"
+          aria-label="Switch to light theme"
+        >
+          <Sun className="h-5 w-5 hover:bg-gray-100 hover:text-gray-800" />
+        </button>
+      ) : (
+        <button
+          onClick={() => setTheme('dark')}
+          className="p-2 rounded-full hover:bg-gray-800 transition-colors duration-200"
+          aria-label="Switch to dark theme"
+        >
+          <Moon className="h-5 w-5 hover:bg-gray-800 hover:text-gray-100" />
+        </button>
+      )}
+    </div>
   );
 };
 

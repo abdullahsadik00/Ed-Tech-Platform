@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MoreHorizontal, Download } from 'lucide-react';
+import DataTable from '../../../uiElements/DataTable';
 
 const MOCK_DATA = [
   {
@@ -11,73 +12,106 @@ const MOCK_DATA = [
     status: 'active',
     country: '🇺🇸',
   },
+  {
+    id: 2,
+    name: 'Beth Wilson',
+    avatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop',
+    date: 'Dec 16, 2024',
+    status: 'pending',
+    country: '🇬🇧',
+  },
+  {
+    id: 3,
+    name: 'Carl Thompson',
+    avatar:
+      'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80&h=80&fit=crop',
+    date: 'Dec 15, 2024',
+    status: 'active',
+    country: '🇨🇦',
+  },
 ];
 
 const SubmittedTestsCard = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  return (
-    <div className="rounded-xl border bg-white p-6 shadow-sm">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold">Submitted Tests</h2>
-        <div className="relative">
-          <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="p-2 hover:bg-gray-100 rounded-full"
-          >
-            <MoreHorizontal className="h-4 w-4" />
-          </button>
-
-          {showDropdown && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border">
-              <button
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center"
-                onClick={() => setShowDropdown(false)}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download Report
-              </button>
-            </div>
-          )}
+  const columns = [
+    {
+      key: 'name',
+      header: 'Student',
+      className: 'pl-6',
+      render: (_, row) => (
+        <div className="flex items-center gap-3">
+          <img
+            src={row.avatar}
+            alt={row.name}
+            className="h-8 w-8 rounded-full object-cover"
+          />
+          <span className="font-medium">{row.name}</span>
         </div>
-      </div>
+      ),
+    },
+    {
+      key: 'date',
+      header: 'Submitted',
+      render: (value) => (
+        <span className="text-sm text-muted-foreground">{value}</span>
+      ),
+    },
+    {
+      key: 'status',
+      header: 'Status',
+      render: (value) => (
+        <span
+          className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium
+            ${
+              value === 'active'
+                ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
+                : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
+            }`}
+        >
+          {value}
+        </span>
+      ),
+    },
+    {
+      key: 'country',
+      header: 'Country',
+      align: 'center',
+    },
+  ];
 
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b text-xs font-medium text-gray-500">
-              <th className="pb-3 text-left">Student</th>
-              <th className="pb-3 text-left">Submitted</th>
-              <th className="pb-3 text-left">Status</th>
-              <th className="pb-3 text-center">Country</th>
-            </tr>
-          </thead>
-          <tbody>
-            {MOCK_DATA.map((student) => (
-              <tr key={student.id} className="border-b last:border-0">
-                <td className="py-3">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={student.avatar}
-                      alt={student.name}
-                      className="h-8 w-8 rounded-full object-cover"
-                    />
-                    <span className="font-medium">{student.name}</span>
-                  </div>
-                </td>
-                <td className="py-3 text-sm text-gray-500">{student.date}</td>
-                <td className="py-3">
-                  <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700">
-                    {student.status}
-                  </span>
-                </td>
-                <td className="py-3 text-center">{student.country}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+  const tableActions = (
+    <div className="relative">
+      <button
+        onClick={() => setShowDropdown(!showDropdown)}
+        className="p-2 hover:bg-primary rounded-full"
+      >
+        <MoreHorizontal className="h-4 w-4" />
+      </button>
+
+      {showDropdown && (
+        <div className="absolute right-0 mt-2 w-48 rounded-md border border-border bg-white shadow-md">
+          <button
+            className="w-full px-4 py-2 text-left text-sm hover:bg-primary flex items-center"
+            onClick={() => setShowDropdown(false)}
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download Report
+          </button>
+        </div>
+      )}
     </div>
+  );
+
+  return (
+    <DataTable
+      data={MOCK_DATA}
+      columns={columns}
+      itemsPerPage={2}
+      title="Submitted Tests"
+      actions={tableActions}
+    />
   );
 };
 
