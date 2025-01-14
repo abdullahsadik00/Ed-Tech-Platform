@@ -131,12 +131,14 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @layer utilities {
+
   /* Scrollbar styles */
   ::-webkit-scrollbar {
     width: 8px;

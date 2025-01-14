@@ -3,7 +3,7 @@ import { Trophy } from 'lucide-react';
 
 const TopStudentsCard = () => {
   return (
-    <div className="rounded-xl border bg-card p-6 shadow-sm">
+    <div className="rounded-xl border bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold">Top Students</h2>
         <Trophy className="h-5 w-5 text-yellow-500" />
