@@ -10,6 +10,7 @@ import { authRoutes } from './routes/auth.routes';
 // import { progressRoutes } from './routes/progress.routes';
 import { errorHandler } from './middlewares/errorHandler';
 import { notFoundHandler } from './middlewares/notFoundHandler';
+import { OTPRouter } from './routes/otp.routes';
 
 config();
 
@@ -27,6 +28,7 @@ app.use(limiter);
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/otp', OTPRouter);
 // app.use('/api/courses', courseRoutes);
 // app.use('/api/users', userRoutes);
 // app.use('/api/enrollments', enrollmentRoutes);

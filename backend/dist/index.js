@@ -15,6 +15,7 @@ const auth_routes_1 = require("./routes/auth.routes");
 // import { progressRoutes } from './routes/progress.routes';
 const errorHandler_1 = require("./middlewares/errorHandler");
 const notFoundHandler_1 = require("./middlewares/notFoundHandler");
+const otp_routes_1 = require("./routes/otp.routes");
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
 app.use((0, helmet_1.default)());
@@ -27,6 +28,7 @@ const limiter = (0, express_rate_limit_1.default)({
 app.use(limiter);
 // API Routes
 app.use('/api/auth', auth_routes_1.authRoutes);
+app.use('/api/otp', otp_routes_1.OTPRouter);
 // app.use('/api/courses', courseRoutes);
 // app.use('/api/users', userRoutes);
 // app.use('/api/enrollments', enrollmentRoutes);
