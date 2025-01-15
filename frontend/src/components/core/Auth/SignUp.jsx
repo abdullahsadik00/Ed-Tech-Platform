@@ -1,120 +1,51 @@
 import React, { useState } from 'react';
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { AuthButton } from './AuthButton';
-import { VerificationModal } from './VerificationModal';
+import { motion } from 'framer-motion';
+import EmailTab from './EmailTab';
+import VerificationModal from './VerificationModal';
+import SignUpOptions from './SignUpOptions';
 
 const SignUp = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeView, setActiveView] = useState('onboard');
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
 
   return (
-    <section className="min-h-screen w-full py-10 px-4">
-      <div className="container max-w-4xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          {/* Left side - Image */}
-          <div className="w-full md:w-1/2 animate-fade-in">
-            <img
-              src="/placeholder.svg"
-              alt="Sign up illustration"
-              className="w-full h-auto object-cover rounded-lg shadow-lg"
-            />
-          </div>
-
-          {/* Right side - Form */}
-          <div className="w-full md:w-1/2">
-            <div className="bg-white rounded-xl shadow-xl p-8 transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-1">
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                    Let's Get Started
-                  </h1>
-                  <p className="text-sm text-gray-600">Sign up your account</p>
-                </div>
-
-                {activeView === 'onboard' ? (
-                  <div className="space-y-4 animate-fade-in">
-                    <AuthButton
-                      variant="primary"
-                      icon={<Mail className="w-4 h-4" />}
-                      onClick={() => setActiveView('email')}
-                    >
-                      Sign Up with Email
-                    </AuthButton>
-                    <AuthButton
-                      variant="google"
-                      icon={<Mail className="w-4 h-4" />}
-                    >
-                      Sign up with Google
-                    </AuthButton>
-                    <AuthButton
-                      variant="facebook"
-                      icon={<Mail className="w-4 h-4" />}
-                    >
-                      Sign up with Facebook
-                    </AuthButton>
-                  </div>
-                ) : (
-                  <div className="space-y-4 animate-fade-in">
-                    <AuthInput
-                      type="email"
-                      placeholder="Enter email"
-                      icon={<Mail className="w-4 h-4" />}
-                    />
-                    <AuthInput
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="Enter password"
-                      icon={<Lock className="w-4 h-4" />}
-                      rightIcon={
-                        showPassword ? (
-                          <EyeOff className="w-4 h-4" />
-                        ) : (
-                          <Eye className="w-4 h-4" />
-                        )
-                      }
-                      onRightIconClick={() => setShowPassword(!showPassword)}
-                    />
-                    <AuthButton onClick={() => setIsModalOpen(true)}>
-                      Continue
-                    </AuthButton>
-                    <button
-                      onClick={() => setActiveView('onboard')}
-                      className="text-sm text-gray-600 hover:text-[#3C43C1] transition-colors"
-                    >
-                      ← Back to sign up options
-                    </button>
-                  </div>
-                )}
-
-                <div className="text-center text-sm text-gray-600">
-                  <p className="mb-4">
-                    By continuing you agree to our{' '}
-                    <button className="font-semibold text-gray-900 hover:underline">
-                      Terms & Conditions
-                    </button>{' '}
-                    and{' '}
-                    <button className="font-semibold text-gray-900 hover:underline">
-                      Privacy Policy
-                    </button>
-                  </p>
-                  <p>
-                    Already have an account?{' '}
-                    <button className="font-semibold text-gray-900 hover:underline">
-                      Log in
-                    </button>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="min-h-screen flex items-center justify-between p-8 bg-gray-50"
+    >
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="hidden lg:flex lg:w-1/2 items-center justify-center p-8"
+      >
+        <div className="relative w-[500px] h-[500px]">
+          <div className="absolute inset-0 bg-purple-100 rounded-full"></div>
+          <motion.img
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            src="/lovable-uploads/09714a7f-1b23-4e57-9581-d3eabf67c3ab.png"
+            alt="Sign up illustration"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
-      </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-full lg:w-1/2"
+      >
+        <EmailTab onVerification={() => setShowVerificationModal(true)} />
+      </motion.div>
 
       <VerificationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={showVerificationModal}
+        onClose={() => setShowVerificationModal(false)}
       />
-    </section>
+    </motion.div>
   );
 };
 
