@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
-
+  console.log(`ThemeToggle`, theme);
   return (
     <div className="mr-2">
       {theme === 'dark' ? (

@@ -1,7 +1,7 @@
 import React from 'react';
-import SubmittedTestsCard from './Cards/SubmittedTestsCard';
-import TopStudentsCard from './Cards/TopStudentsCard';
-import TeacherProfileCard from './Cards/TeacherProfileCard';
+import SubmittedTestsCard from './cards/SubmittedTestsCard';
+import TopStudentsCard from './cards/TopStudentsCard';
+import TeacherProfileCard from './cards/TeacherProfileCard';
 import WelcomeCard from './cards/WelcomeCard';
 const HomeContent = () => {
   return (

@@ -7,7 +7,6 @@ import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import PageNotFound from './pages/PageNotFound';
 import Dashboard from './pages/Dashboard';
-// import { SidebarDemo } from './components/core/Home/Sidebar1';
 const App = () => {
   return (
     <div>
@@ -18,7 +17,6 @@ const App = () => {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/dash" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
-        {/* <Route path="dash1" element={<SidebarDemo />} /> */}
       </Routes>
     </div>
   );
