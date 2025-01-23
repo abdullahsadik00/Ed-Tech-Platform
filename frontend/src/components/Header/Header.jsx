@@ -6,8 +6,8 @@ import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-30 bg-background/80 backdrop-blur-sm border-b">
-      <div className="px-6 py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-30 bg-background/80 backdrop-blur-sm border-b h-16 flex items-center">
+      <div className="px-6 py-4 flex items-center justify-between w-full">
         <div className="flex items-center space-x-6 flex-1">
           <UserGreeting />
           <SearchBar />

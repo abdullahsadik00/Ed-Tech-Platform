@@ -77,7 +77,7 @@ const Courses = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto bg-white rounded-md"
+        className="max-w-3xl min-w-lg  mx-auto bg-white rounded-md"
       >
         <div className="animate-fade-in ">
           <motion.div
@@ -106,8 +106,8 @@ const Courses = () => {
             >
               Update thumbnail
             </button>
-            <div className="absolute w-12 h-12 bg-primary-200 left-4 -bottom-6 rounded-md flex items-center justify-center">
-              <User size={28} className="text-white" />
+            <div className="absolute w-14 h-14 bg-primary-200 left-4 -bottom-7 rounded-md flex items-center justify-center">
+              <User size={38} className="text-white" />
             </div>
           </motion.div>
           <motion.div
@@ -119,13 +119,28 @@ const Courses = () => {
             <textarea
               type="text"
               placeholder="What is the Learning Path"
-              className="text-3xl font-semibold w-full border-none focus:outline-none focus:ring-0 active:outline-none placeholder:text-gray-400"
+              className="text-3xl font-semibold pl-0 w-full border-none focus:outline-none focus:ring-0 active:outline-none placeholder:text-gray-400"
               rows={1}
             />
 
             <div className="space-y-4 mt-2">
-              <div className="space-y-3 flex items-center">
+              {/* <div className="space-y-3 flex items-center">
                 <label className="font-medium w-56">Category</label>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((tag) => (
+                    <Tag
+                      key={tag}
+                      label={tag}
+                      active={selectedTags.includes(tag)}
+                      onClick={() => toggleTag(tag)}
+                    />
+                  ))}
+                </div>
+              </div> */}
+              <div className="space-y-3 flex flex-col sm:flex-row sm:items-center">
+                <label className="font-medium w-full sm:w-56 mb-2 sm:mb-0">
+                  Category
+                </label>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((tag) => (
                     <Tag
@@ -138,9 +153,35 @@ const Courses = () => {
                 </div>
               </div>
 
-              <div className=" flex items-center">
-                <label className="font-medium w-56 ">Estimate duration</label>
+              {/* <div className=" flex items-center">
+                <label className="font-medium sm:w-56 w-72 ">
+                  Estimate duration1
+                </label>
 
+                <div className="flex w-full items-center gap-2 border border-border rounded-lg px-4 py-2">
+                  <input
+                    type="number"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    placeholder="Duration"
+                    className="w-full p-0 bg-transparent border-none focus:outline-none focus:ring-0"
+                  />
+                  <select
+                    value={currency}
+                    onChange={(e) => setCurrency(e.target.value)}
+                    className="bg-transparent  w-32 p-0 sm:px-9 px-3 border-none focus:outline-none focus:ring-0"
+                  >
+                    <option value="HOUR">Hours</option>
+                    <option value="DAY">Days</option>
+                    <option value="WEEK">Weeks</option>
+                    <option value="MONTH">Month</option>
+                  </select>
+                </div>
+              </div> */}
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <label className="font-medium w-full sm:w-56 mb-2 sm:mb-0">
+                  Estimate duration
+                </label>
                 <div className="flex w-full items-center gap-2 border border-border rounded-lg px-4 py-2">
                   <input
                     type="number"
@@ -161,9 +202,10 @@ const Courses = () => {
                   </select>
                 </div>
               </div>
+
               <div className=" mt-8">
                 <div className="space-y-3 flex items-center">
-                  <label className="font-medium w-56">Price</label>
+                  <label className="font-medium sm:w-56 w-72 ">Price</label>
 
                   <div className="flex w-full items-center gap-2 border border-border rounded-lg px-4 py-2">
                     <input
@@ -188,13 +230,13 @@ const Courses = () => {
 
               <div className=" mt-8">
                 <div className="space-y-3 flex items-center">
-                  <label className="font-medium w-56">Level</label>
+                  <label className="font-medium sm:w-56 w-72 ">Level</label>
 
                   <div className="flex w-full items-center gap-2 border border-border rounded-lg px-4 py-2">
                     <select
                       value={level}
                       onChange={(e) => setLevel(e.target.value)}
-                      className="bg-transparent p-0 px-3 border-none focus:outline-none focus:ring-0 w-full"
+                      className="bg-transparent p-0 border-none focus:outline-none focus:ring-0 w-full"
                     >
                       {levels.map((l) => (
                         <option key={l} value={l}>
@@ -207,7 +249,7 @@ const Courses = () => {
               </div>
               <div className=" mt-8">
                 <div className="space-y-3 flex items-center">
-                  <label className="font-medium w-56">Language</label>
+                  <label className="font-medium sm:w-56 w-72 ">Language</label>
 
                   <div className="flex w-full items-center gap-2 border border-border rounded-lg px-4 py-2">
                     <select
@@ -224,10 +266,10 @@ const Courses = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="space-y-3 flex items-center">
-                <label className="font-medium w-56">Description</label>
-
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <label className="font-medium w-full sm:w-56 mb-2 sm:mb-0">
+                  Description
+                </label>
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -237,6 +279,14 @@ const Courses = () => {
               </div>
               <div className="text-right text-sm !mt-1">
                 {description.length}/450
+              </div>
+              <div className="text-right">
+                <button
+                  type="submit"
+                  class="px-4 py-2 text-sm font-medium text-white bg-blue-600 dark:bg-blue-500 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600"
+                >
+                  Save Changes
+                </button>
               </div>
             </div>
           </motion.div>
